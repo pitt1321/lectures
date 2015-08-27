@@ -10,6 +10,8 @@ $(BASENAME)-notes.pdf: $(BASENAME)-notes.tex $(BASENAME)-body.tex Makefile
 $(BASENAME)-slides.pdf: $(BASENAME)-slides.tex $(BASENAME)-body.tex Makefile 
 	pdflatex -halt-on-error $(BASENAME)-slides
 	pdflatex -halt-on-error $(BASENAME)-slides
+	# Merge with Python slides
+	gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$(BASENAME)-slides.joined.pdf $(BASENAME)-slides.pdf primer_1-2-3_subset.pdf
 
 notes: $(BASENAME)-notes.pdf
 	
