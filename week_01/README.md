@@ -42,7 +42,7 @@
 
 ## Where to Go for Help
 * I will be around during working time during each class after lecture time.
-* Office hours: Wednesday, 11:00 to 12:00\\
+* Office hours: Wednesday, 11:00 to 12:00
 * Make an appointment to meet with me.
 * Lots of Python and GitHub help available online!
 
@@ -135,7 +135,7 @@ Type "help", "copyright", "credits" or "license" for more information.
   - NBViewer:  A service that you can publish read-only versions of iPython notebooks.  http://nbviewer.ipython.org
   - More later.
 
-## Homework 1 - Due 2015-09-05, at TIME WE AGREED
+## Homework 1 - Due 2015-09-05, at 18:00 Eastern
 * Create a GitHub account and tell me (we should have just done this in class)
 * Install Python and iPython on your computer.
   - Python version 3.4 or later.
