@@ -16,9 +16,10 @@ Please watch and read these -- it will save valuable class time.
     * 'Numerical precision and "Big Data"' by Erich Schubert  
       http://www.vitavonni.de/blog/201311/2013110201-numerical-precision-and-big-data.html
 2. Week of 09/07
-  - 09/07 
+  - 09/09 
     * ECP 2 "Programming Blastoff with Python" up to "Strings"
       - "Modules", "Python Wrap-Up"
+    * ECP 15 "Local Version Control"
   - 09/11 
     * "What Every Computer Scientist Should Know About Floating-Point Arithmetic"  
       David Goldberg, 1991.  
