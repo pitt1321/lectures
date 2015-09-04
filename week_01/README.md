@@ -135,7 +135,11 @@ Type "help", "copyright", "credits" or "license" for more information.
   - NBViewer:  A service that you can publish read-only versions of iPython notebooks.  http://nbviewer.ipython.org
   - More later.
 
+<<<<<<< Updated upstream
 ## Homework 1 - Due 2015-09-05, at 18:00 Eastern
+=======
+## Homework 1 - Due 2015-09-05, at 23:59
+>>>>>>> Stashed changes
 * Create a GitHub account and tell me (we should have just done this in class)
 * Install Python and iPython on your computer.
   - Python version 3.4 or later.
