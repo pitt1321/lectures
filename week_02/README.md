@@ -1,12 +1,12 @@
 # Computational methods in Physics
-## Week 1
+## Week 2
 #### Prof. Michael Wood-Vasey
 ##### University of Pittsburgh, Department of Physics and Astronomy
 
 \date[Week 2]{Week 2}
 
 ## Homework 02
-* Homework 2 is Due 2015-09-11, 18:00
+* Homework 2 is Due 2015-09-11, 23:59
 * https://www.github.com/pitt1321/assignments/hmwk_02
 
 
