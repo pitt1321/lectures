@@ -1,19 +1,21 @@
 # Computational methods in Physics
 ## Week 3
 #### Prof. Michael Wood-Vasey
+##### [based on materials from Prof. Brian D'Urso]
 ##### University of Pittsburgh, Department of Physics and Astronomy
 
 
 ## Random Numbers
 
 ### Deterministic Randomness
-Some problems appear physically uncertain. Examples:
+Some problems are physically unpredictable. Examples:
   * thermal motion
   * games of chance
   * radioactive decay
+
 How do we deal with randomness numerically?
   * Computers are deterministic; no chance involved.
-  * Always same output for same input; unless error.
+  * Always same output for same input; unless hardware error.
   * Generate pseudo-random numbers.
   * Monte Carlo calculations: simulate random events.
     - Solve equations statistically
@@ -22,7 +24,7 @@ How do we deal with randomness numerically?
 ### Drawing Random Numbers
   * Python has a random module for drawing random numbers
   * `random.random()` 
-draws random numbers in `[0, 1)` :
+draws random numbers in `[0, 1)` :  
 `>>> import random`  
 `>>> random.random()`  
 `0.81550546885338104`  
@@ -38,14 +40,14 @@ deterministic algorithm - the numbers just appear random.
 distributed in the interval $[0, 1)$.
   * `random.uniform(a, b)` generates random numbers uniformly
 distributed in $[a, b)$.
-  * ``Uniformly distributed'' means that if we generate a large set
+  * "Uniformly distributed" means that if we generate a large set
 of numbers, no part of $[a, b)$ gets more numbers than others.
   * See `random_distribution` demo.
 
 ### Vectorized Drawing of Random Numbers
   * `random.random()` generates one number at a time  
-`r = random.random() # one number`  
-`r = random.uniform(-1, 10) # one number  
+`r = random.random()` # one number
+`r = random.uniform(-1, 10)` # one number  
   * `numpy` has a random module that efficiently generates a (large)
 number of random numbers at a time:  
 ```
@@ -64,16 +66,18 @@ drawing uniformly distributed integers:
 import random 
 r = random.randint(a, b) # a, a+1, ..., b
 ```
+
 ```
 import numpy as np
 # b+1 is not included  
 r = np.random.randint(a, b+1, N)  
 # b is included  
 r = np.random.random_integers(a, b, N)  
+```
 
 ### Example: Throwing a Die; Vectorized Version
-  * 
-```import numpy as np  
+```
+ import numpy as np  
  N = 10   
  eyes = np.random.randint(1, 7, N)   
  # True/False array   
@@ -82,8 +86,7 @@ r = np.random.random_integers(a, b, N)
  six = np.sum(success)   
  print 'Got six %d times out of %d' % (six, N) 
 ```
-\vfill
-  * Important: use `numpy.sum` and not the default -in `sum` function! (The latter is slow.)
+  * Important: use `numpy.sum` and not the default `sum` function! (The latter is slow.)
 
 ### Fixing the Seed Fixes the Random Sequence
   * Debugging programs with random numbers is difficult because
@@ -100,20 +103,19 @@ sequence of random numbers in the last run.
  np.random.seed(2)   
  np.random.random(3) 
 ```
-  * By default, the seed is based on the current time.
 
 ### Distributions of Random Numbers
   * Sometimes we want uniformly distributed random numbers,
 and sometimes not.
   * Example: it is more likely have normal (mean) blood pressure
 than large deviations from the mean.
-  * We can use the Gaussian or normal distribution to get random
+  * We can use the Gaussian (or "normal") distribution to get random
 numbers clustered around a mean value:  
 ```
  import random   
  r = random.normalvariate(m, s)   
- m$: mean value,  s : standard deviation
 ```
+where `m`: mean value,  `s`: standard deviation
   * Vectorized drawing of $N$ Gaussian/normal numbers:  
 ```
  import numpy as np   
@@ -123,16 +125,17 @@ numbers clustered around a mean value:
 
 ### Probability via Monte Carlo Simulation
   * What is the probability that a certain event A happens?
-  * Simulate $N$ events, count how many times $M$ the event $A$
-happens, the probability of the event $A$ is then $M/N$ (as
-$N \rightarrow \infty$).
+    1. Simulate $N$ events
+    2. Count how many times $M$ the event $A$
+happens
+    3. The probability of the event $A$ is then $M/N$ (as $N \rightarrow \infty$).
   * Example: what is the probability of getting 6 on two or more
 dice if we throw 4 dice?  
 ```
- N = 100000 # no of experiments   
- M = 0 # no of successful events   
+ N = 100000 # number of experiments   
+ M = 0 # number of successful events   
  for i in range(N):   
-     six = 0 # count the no of dice with a six   
+     six = 0 # count the number of dice with a six   
      r1 = random.randint(1, 6)   
      if r1 == 6: six += 1   
      ... same for dice 2, 3 and 4 ...   
@@ -148,9 +151,8 @@ dice if we throw 4 dice?
   * A particle moves to the left and right with equal probability
   * $n$ particles start at $x = 0$ at time $t = 0$ - how do the particles
 get distributed over time?
-  * This is called random walk and constitutes a simple model for
-molecular motion.
-\begin{itemize}
+  * This is called a random walk and constitutes a simple model for
+molecular motion in many situations:
     - heat transport
     - quantum mechanics
     - polymer chains
@@ -184,7 +186,7 @@ $R^2 \simeq \Delta x_1^2 + \cdots + \Delta x_N^2 + \Delta y_1^2 + \cdots + \Delt
 
 ## Radioactive Decay
 ### Spontaneous (e.g. Radioactive) Decay
-  * ``Spontaneous'' process $\rightarrow$ no external stimulus.
+  * "Spontaneous" process $\rightarrow$ no external stimulus.
   * Time of decay is random, independent of:
     - How long it existed.
     - How many other are around.
