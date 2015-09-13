@@ -26,8 +26,11 @@ Please watch and read these -- it will save valuable class time.
       http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
        - Read up through and including "Relative Error and Ulps"
 3. Week of 09/14
-  - ECP 5 "Operating with Functions"
+  - 09/14  ECP 5 "Operating with Functions"
     * "Functions in Python", "Keyword Arguments", "Variable Number of Arguments", "Multiple Return Values"
+  - 09/16  
+    * Random numbers
+  - 09/18  
 4. Week of 09/21
   - ECP 5 "Operating with Functions"
     * "Scope", "Recursion"
