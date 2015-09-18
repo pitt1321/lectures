@@ -32,11 +32,31 @@ Please watch and read these -- it will save valuable class time.
     * Random numbers
   - 09/18  
 4. Week of 09/21
-  - ECP 5 "Operating with Functions"
-    * "Scope", "Recursion"
-  - ECP 1 "Introduction to the Command Line:"
-    * "Getting Help", "Permissions and Sharing", "The Environment", "Scripting with Bash", "Command Line Wrap-Up"
+  - 09/21
+    * ECP 19 "Testing"  (first half)
+      - "Why Do We Test?", "When Should We Test?", "Where Should We Write Tests?", "What and How to Test?", "Running Tests", "Edge Cases", "Unit Tests" 
+    * https://en.wikipedia.org/wiki/Numerical_integration
+    * https://en.wikipedia.org/wiki/Rectangle_method
+    * https://en.wikipedia.org/wiki/Trapezoidal_rule
+    * https://en.wikipedia.org/wiki/Simpson's_rule
+  - 09/22
+    * ECP 19 "Testing"  (second half)
+      - "Integration Tests", "Regression Tests", "Test Generators", "Test Coverage", "Test-Driven Development", "Testing Wrap-Up"
+    * Either of: 
+      - https://en.wikipedia.org/wiki/Gaussian_quadrature
+      - http://nm.mathforcollege.com/topics/gauss_quadrature.html
+         * select just a couple of useful links from this one: there are PDFs, videos, interactive web pages, etc.
+
 5. Week of 09/28
+  - 9/28 
+    * ECP 1 "Introduction to the Command Line:"
+      - "Getting Help", "Permissions and Sharing", "The Environment", "Scripting with Bash", "Command Line Wrap-Up"
+    * https://en.wikipedia.org/wiki/Numerical_differentiation
+  - 9/30
+    * https://en.wikipedia.org/wiki/Finite_difference
+       - Up to and including "5. Newton's Series"
+    * https://en.wikipedia.org/wiki/Finite_difference_method
+
 6. Week of 10/05
 7. Week of 10/12
 8. Week of 10/19
