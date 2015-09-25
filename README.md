@@ -49,16 +49,25 @@ Please watch and read these -- it will save valuable class time.
 
 5. Week of 09/28
   - 9/28 
-    * ECP 1 "Introduction to the Command Line:"
-      - "Getting Help", "Permissions and Sharing", "The Environment", "Scripting with Bash", "Command Line Wrap-Up"
+    * ECP 9 "NumPy: Thinking in Arrays"
+      - "Arrays", "dtypes", "Slicing and Views", "Arithmetic and Broadcasting", "Universal Functions, "Other Valuable Functions"
+      [You can skip "Fancy Indexing", "Masks", and "Structured Arrays".]
     * https://en.wikipedia.org/wiki/Numerical_differentiation
   - 9/30
+    * ECP 5 "Flow Control and Logic"  [all]
+      - "Conditionals", "Exceptions", "Loops", "Comprehensions"
     * https://en.wikipedia.org/wiki/Finite_difference
        - Up to and including "5. Newton's Series"
     * https://en.wikipedia.org/wiki/Finite_difference_method
 
 6. Week of 10/05
+    * ECP 3 "Essential Containers"  [all]
+      - "Lists", "Tuples", "Sets", "Dictionaries"
+    * ECP 1 "Introduction to the Command Line:"
+      - "Getting Help", "Permissions and Sharing", "The Environment", "Scripting with Bash", "Command Line Wrap-Up"
 7. Week of 10/12
+    * ECP 17 "Debugging"  [all]
+      - "Encountering a Bug", "Print Statements", "Interactive Debugging", "Debugging in Python (pdb)", "Profile"
 8. Week of 10/19
 9. Week of 10/26
 10. Week of 11/02
