@@ -94,10 +94,10 @@ f^\prime(x) \simeq D_{cd}\left[f(x), h\right] = \frac{f(x+h/2)-f(x-h/2)}{h}
 $$
 * Apply central difference method twice:
 $$
-f^{\prime\prime}(x) &\simeq D_{cd}[f^\prime (x), h]\\[2mm]
-                    &\simeq D_{cd}\left[D_{cd}[f(x), h], h\right]\\[2mm]
-                    &\simeq \frac{f^\prime(x+h/2)-f^\prime(x-h/2)}{h}\\[2mm]
-                    &\simeq \frac{[f(x+h)-f(x)]-[f(x)-f(x-h)]}{h^2}\\[2mm]
+f^{\prime\prime}(x) &\simeq D_{cd}[f^\prime (x), h]  
+                    &\simeq D_{cd}\left[D_{cd}[f(x), h], h\right]  
+                    &\simeq \frac{f^\prime(x+h/2)-f^\prime(x-h/2)}{h}  
+                    &\simeq \frac{[f(x+h)-f(x)]-[f(x)-f(x-h)]}{h^2}  
                     &\simeq \frac{f(x+h)-2 f(x)+f(x-h)}{h^2}
 $$
 
