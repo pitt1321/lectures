@@ -54,7 +54,7 @@ Please watch and read these -- it will save valuable class time.
       [You can skip "Fancy Indexing", "Masks", and "Structured Arrays".]
     * https://en.wikipedia.org/wiki/Numerical_differentiation
   - 9/30
-    * ECP 5 "Flow Control and Logic"  [all]
+    * ECP 4 "Flow Control and Logic"  [all]
       - "Conditionals", "Exceptions", "Loops", "Comprehensions"
     * https://en.wikipedia.org/wiki/Finite_difference
        - Up to and including "5. Newton's Series"
