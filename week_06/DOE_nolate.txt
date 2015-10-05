@@ -1,0 +1,16 @@
+http://www.grants.gov/web/grants/search-grants.html?keywords=DE-FOA-0001358
+"""
+4. Late Submissions
+Applications received after the deadline will not be reviewed or considered for award. 
+
+Delays in submitting letters of intent, pre-applications, and applications may be unavoidable. DOE has accepted late submissions when applicants have been unable to make timely submissions because of widespread technological disruptions or significant natural disasters. DOE has made accommodations for incapacitating or life-threatening illnesses and for deaths of immediate family members. Other circumstances may or may not justify late submissions. 
+
+Unacceptable justifications include the following: 
+* Failure to begin submission process early enough.
+* Failure to provide sufficient time to complete the process. 
+* Failure to understand the submission process. 
+* Failure to understand the deadlines for submissions. 
+* Failure to satisfy prerequisite registrations. 
+* Unavailability of administrative personnel. 
+* An upper respiratory infection (a "cold") the week of the deadline. 
+"""
