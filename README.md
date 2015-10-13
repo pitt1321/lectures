@@ -61,14 +61,25 @@ Please watch and read these -- it will save valuable class time.
     * https://en.wikipedia.org/wiki/Finite_difference_method
 
 6. Week of 10/05
+  - 10/05
     * ECP 3 "Essential Containers"  [all]
       - "Lists", "Tuples", "Sets", "Dictionaries"
+  - 10/07
     * ECP 1 "Introduction to the Command Line:"
       - "Getting Help", "Permissions and Sharing", "The Environment", "Scripting with Bash", "Command Line Wrap-Up"
+
 7. Week of 10/12
+  - 10/12
+    * https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations
+    * https://en.wikipedia.org/wiki/Explicit_and_implicit_methods
+    * https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
+  - 10/14
+    * https://en.wikipedia.org/wiki/Runge-Kutta_methods
+
+8. Week of 10/19
     * ECP 17 "Debugging"  [all]
       - "Encountering a Bug", "Print Statements", "Interactive Debugging", "Debugging in Python (pdb)", "Profile"
-8. Week of 10/19
+
 9. Week of 10/26
 10. Week of 11/02
 11. Week of 11/09
