@@ -61,7 +61,7 @@ v(t_0) = \beta \;\rightarrow\;
 
 
 
-#### Rewriting an N$^{th$-Order ODE}
+#### Rewriting an N$^{th}$-Order ODE}
 
 * We need to rewrite higher-order ODEs, e.g.:
 \begin{equation*}
@@ -164,10 +164,7 @@ U_{LJ}(r) = \epsilon \left[\left(\frac{r_m}{r}\right)^{12} - 2\left(\frac{r_m}{r
 * $\epsilon$: depth of potential well.
 * $r_m$: distance at which potential is minimal.
 
-\begin{figure}[!tbh]
-\centering  
-\includegraphics[width=3.0in]{figures/Lennard-Jones-Potential.png}
-\end{figure}
+![](figures/Lennard-Jones-Potential.png)
 
 
 #### Forces from Lennard-Jones Potential
