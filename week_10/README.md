@@ -7,29 +7,17 @@
 ### Problem
 #### Problem: Why Is Nature So Complicated?
 
-\begin{columns}
-\column{0.5\textwidth}
-\vspace{-10.0cm}
-
 * Insect populations, weather patterns
 * Complex behavior\\*[2ex]
 * Stable,  periodic,   chaotic, stable, \ldots\\*[2ex]
 *  \textbf{Problem:} can a simple, discrete law  produce such complicated
 behavior?\\*[1ex]
-\vspace{-10.0cm}
-
-\column{0.5\textwidth}
-\includegraphics[width=1.5in]{figures/BugPop.jpg}
-\end{columns}
 
 
 ### Logistic Map
 #### Model Realistic Problem: Bug Cycles
 
-\begin{block}{Bugs Reproduce Generation after Generation = $i$}
-\begin{columns}
-\column{0.5\textwidth}
-\vspace{-17.0cm}
+##### Bugs Reproduce Generation after Generation = $i$
 
 *   $N_0\ \rightarrow \  N_1, N_2, \ldots  N_\infty$\\*[2ex]
 *  $N_i = f(i)?$\\*[2ex]
@@ -38,27 +26,23 @@ behavior?\\*[1ex]
 \frac{\Delta N}{\Delta t} =\ & -\lambda N \\*[1ex]
 \Rightarrow\   \simeq\ & e^{-\lambda t}
 \end{align*}
-*   $-\lambda \rightarrow +\lambda$ \imply  growth
-\vspace{-10.0cm}
+*   $-\lambda \rightarrow +\lambda$ \implies  growth
 
-\column{0.5\textwidth}
-\includegraphics[width=1.75in]{figures/cockroach.jpg}
-\vspace{10.0cm}
-\[
+![](figures/cockroach.jpg)
+
+$$
 \frac{\Delta N_i}{\Delta t} = \lambda \; N_i
-\]
-\end{columns}
-\end{block}
+$$
 
 
 #### Refine Model: Maximum Population $N_{*$}
 
-\begin{block}{Incorporate Carrying Capacity into Rate}
+##### Incorporate Carrying Capacity into Rate
 
 * Assume  breeding rate proportional to   number of bugs:
-\[
+$$
 \frac{\Delta N_i}{\Delta t} = \lambda \; N_i
-\]
+$$
  * Want growth rate   $\downarrow$  as  $N_i \rightarrow N_{*}$\\*[2ex]
  * Assume $\lambda=\lambda' (N_*-N_i)$
 \[
@@ -66,8 +50,8 @@ behavior?\\*[1ex]
 N_i}{\Delta t} =
 \lambda'(N_{*}-N_i)N_i} \quad \quad \mbox{(Logistic Map)}
  \]
-* Small $N_i/N_*$ \imply exponential growth\\*[2ex]
-*  $N_i \rightarrow N_*$  \imply slow growth, stable, decay
+* Small $N_i/N_*$ \implies exponential growth\\*[2ex]
+*  $N_i \rightarrow N_*$  \implies slow growth, stable, decay
 
 \end{block}
 
@@ -150,75 +134,6 @@ x_{*} = \frac{1+\mu \pm \sqrt{\mu^{2}-2\mu -
 
 \end{block}
 
-%### Exercise 1
-%#### Exercise 1
-%\begin{block}{Produce sequence  $x_{i}$}
-%\begin{enumerate}
-%* Confirm  behavior patterns A, B, C, D\\
-%* Identify the  following:
-%\begin{description}
-%* [Transients ]
-%* [Asymptotes ]
-%* [Extinction ]
-%* [Stable states ]
-%* [Multiple cycles ]
-%* [Four-cycle ]
-%* [Intermittency ]   $ 3.8264 < \mu <
-%3.8304$
-%* [Chaos ]  deterministic irregularity; hypersensitivity \imply nonpredictable,  $\mu = 4,\  4(1 -
-%\epsilon)$
-% \end{description}
-%\end{enumerate}
-%\end{block}
-%
-%### Bifurcations
-%#### Bifurcation Diagram
-%\begin{block}{Concentrate on Attractors}
-%\begin{columns}
-%\column{0.6\textwidth}
-%\no \hspace{6ex}\includegraphics[width=2.25in]{figures/bugcolor2.pdf}
-%\column{0.4\textwidth}
-%
-%* Simplicity in chaos\\*[2ex]
-% * Attractors  as   $f(\mu)$\\*[2ex]
-% * Scan $x_0$, $\mu$\\*[2ex]
-%* Let transients die\\*[2ex]
-%* Output  $(\mu,x_{*})s$\\*[2ex]
-%* $n$ cycle = $n$ values\\*[2ex]
-%* See enlargements
-%
-%\end{columns}
-%\end{block}
-% %
-%\begin{frame}[label=current]{Detailed Bifurcation Diagram}
-%\framezoom<1><2>[border](0.1cm,0.5cm)(2cm,4cm)
-%\framezoom<1><3>[border](0.1cm,2cm)(2cm,2cm)
-%\framezoom<1><4>[border](5cm,0.5cm)(2cm,2cm)
-%
-%\no\hspace{-1cm}\includegraphics[width=5.5in]{figures/bugcolorCrop.jpg}
-%
-
-%#### Bifurcation Diagram Sonification
-%  \hyperbaseurl{./}
-%  \begin{block}{Play Bifurcation Diagram}
-%  \begin{columns}
-%  \column{0.5\textwidth}
-%  
-%  *  \href{figures/BUG.AU}{\alert{Hear each bifurcation}}
-%  * Each branch = one $\omega$
-%  
-%  \column{0.5\textwidth}
-%  
-%    *  $\omega \propto x^*$
-%  * Bifurcation = new $\omega$, cord
-%  
-%  \end{columns}
-%\vspace{-0.85cm} \no\includegraphics[width=3.05in]{figures/bugcolor2.pdf}
-%\end{block}
-%%
-%### Exercise 2
-\begin{frame}[label=current]{Bifurcation Diagram }
-
 \begin{columns}
   \column{0.5\textwidth}
 \no\includegraphics[width=2.4in]{figures/bugcolor2.pdf}
@@ -238,28 +153,6 @@ x_{*} = \frac{1+\mu \pm \sqrt{\mu^{2}-2\mu -
  
  \end{columns}
  
-%### Conclusion
-%#### Summary \& Conclusion
-%
-%\begin{block}{Simplicity \& Beauty within Chaos}
-%
-%
-%* Yes, simple discrete maps can lead to complexity\\*[1ex]
-%* Models of real world complexity\\*[1ex]
-%* Complexity related to \alert{nonlinearity} ($x^2$)\\*[1ex]
-%* Computation crucial for nonlinear systems\\*[1ex]
-%* Signals of simplicity, chaos
-%\begin{description}
-%* [Bifurcation Diagram]\mbox{} \\*[1ex]
-%*  [Feigenbaum Constants]\mbox{}\\*[1ex]
-%* [Lyapunov Coefficients]\mbox{}\\*[1ex]
-%* [Shannon Entropy]\mbox{}\\*[1ex]
-%* [Fractal Dimension]
-%\end{description}
-%
-%\end{block}
-%   
-
 
 
 \begin{frame}[label=current]{Problem: Realistic Single or Double Pendulum}
@@ -293,7 +186,6 @@ x_{*} = \frac{1+\mu \pm \sqrt{\mu^{2}-2\mu -
  * Friction $\tau$: \hspace{3ex}  $-\beta\dot{\theta}$\\*[1.5ex]
  * External $\tau$:\hspace{3ex}  $\tau_0\cos \,\omega t$
 
-%------------------------------------------
  
 \vspace{-1ex}
 \begin{align}
@@ -368,29 +260,6 @@ y^{(1)} + f\cos\omega t}
 \end{footnotesize}
  \end{block}
 
-%#### Free Pendulum Implementation \hspace{4ex $\ddot{\theta}  =   -\omega_{0}^{2} \sin \theta$}
-%\setcounter{equation}{0}
-%
-%\begin{block}{Solve \hspace{4ex}ODE \hspace{4ex} with rk4}
-%\begin{enumerate}
-% \i
-%Initial conditions: \{$\theta=0$, $\dot{\theta}(0)\neq 0$\};\  increase  $\dot{\theta}(0)$\\*[1.5ex]
-% * Verify SHM $\ \ddot{\theta}  =   -\omega_{0}^{2} \theta$ \imply $\omega=\omega_{0}= 2\pi/T$ = constant\\*[1.5ex]
-%  \i
-%Devise algorithm to determine period $T$ ( $3\times \theta=0$)\\*[1.5ex]
-%  \i
-%Determine $T(\theta)$ for realistic pendulum, compare\\*[1.5ex]
-% \i
-%Verify   as  $KE(0) \ \leq\ 2mgl$: non harmonic oscillations\\*[1.5ex]
-% * Verify   \imply separatrix ($KE(0) \ \rightarrow \ 2mgl$), $T\rightarrow \infty$\\*[1.5ex]
-% * Listen harmonic \& anharmonic motion \hyperbaseurl{./}
-%\href{../../../Sound/index.html}{\alert{(Hear now)}}\\*[1.5ex]
-% * \hyperbaseurl{./} \href{../../../Applets/nacphy/bert/index.html}{\alert{*Hear Data* applet}}
-%\end{enumerate}
-%\end{block}
-%
-### Phase Space
-
 #### Visualization: Phase Space Orbits
 \setcounter{equation}{0}
 
@@ -407,7 +276,7 @@ y^{(1)} + f\cos\omega t}
 
  \column{0.55\textwidth}
  
- * Ossc \imply CW Closed
+ * Ossc \implies CW Closed
  * Non Ossc, repulse = open
 
 \end{columns}
@@ -453,7 +322,7 @@ E  = & {\rm KE} + {\rm PE} =   m \alert{v^{2}}/2 +
  \begin{columns}
  \column{0.5\textwidth}
  
- *  Friction \imply $\downarrow$ E\\*[1.5ex]
+ *  Friction \implies $\downarrow$ E\\*[1.5ex]
  *  Inward Spiral\\*[1.5ex]
  * $\tau_{ext}$ can put $E$ back\\*[1.5ex]
 
@@ -487,8 +356,8 @@ E  = & {\rm KE} + {\rm PE} =   m \alert{v^{2}}/2 +
  * Simplicity in chaos [PS, $\neq \theta(t)$]\\*[2.0ex]
   * $\rightarrow$ attractors (return)\\*[2.0ex]
   * Random = cloud fill $E$ \\*[2.0ex]
-  * \alert{Bands} \imply continuity, sequential\\*[2.0ex]
-  * \imply hypersensitive $\theta(t)$\\*[2.0ex]
+  * \alert{Bands} \implies continuity, sequential\\*[2.0ex]
+  * \implies hypersensitive $\theta(t)$\\*[2.0ex]
   * Tools measure chaos\\*[2.0ex]
  
  \end{columns}
@@ -496,80 +365,6 @@ E  = & {\rm KE} + {\rm PE} =   m \alert{v^{2}}/2 +
  \end{block}
 
 
-
-%#### Examples of What You Should See
-%\setcounter{equation}{0}
-%
-%\begin{block}{Applets of Pendulums in Phase Space (Hans Kowallik)}
-%\begin{columns}
-%\column{0.6\textwidth}
-%
-%* Do with your program (text path)\\*[2ex]
-%* Reproduce standard features\\*[2ex]
-%* Beware: 4-D parameter space\vspace{-1cm}\\
-%\includegraphics[height=1.75in]{figures/SinglePend.pdf}
-%\vspace{-1.5cm}
-%* \hyperbaseurl{./}
-%\href{../../../Applets/nacphy/JAVA_pend/COMP/index.html}{\alert{Complicated Behavior Applet}}\\*[2ex]
-%* \hyperbaseurl{./}
-%\href{../../../Applets/nacphy/JAVA_pend/CHAOS/index.html}{\alert{Chaos Comparison Applet}}\\*[2ex]
-%
-%\column{0.4\textwidth}
-%\begin{figure}\includegraphics[height=2.0in]{figures/PendApplets.pdf}\end{figure}
-%\end{columns}
-%\end{block}
-%%
-%#### Assessment in Phase Space
-%\setcounter{equation}{0}
-%
-%\begin{block}{Start with Free Pendulum As Your Lab}
-%\vspace{-1.5ex}
-%\begin{columns}
-%\column{0.5\textwidth}
-%
-% * Add friction: spirals\\*[1.25ex]
-% * Small $\tau_{ext}$ ($\sim$ellipse)\\*[1.25ex]
-%  * $\omega \simeq \omega_0$, beats\\*[1.25ex]
-%  * NL resonance  ($\phi$ matters)\\*[1.25ex]
-% * ID transients, 1, 2, 3  cycle\\*[1.25ex]
-% * ID running solutions\\*[1.25ex]
-% * Explore chaos (small $h$)\\*[1.25ex]
-% * ID  hypersensitive details  \\*[1.25ex]
-%  * OK not reproduce us\\*[1.25ex]
-% 
-% \column{0.5\textwidth}
-% \begin{figure}\includegraphics[height=2.4in]{figures/figure1210c.jpg}
-% %\includegraphics[height=2.4in]{figures/Fig1210Mod.pdf}
-% \end{figure}
-% \end{columns}
-% \end{block}
-% %
-%### Bifurcations
-%
-%#### Bifurcations of Chaotic Pendulum
-%\setcounter{equation}{0}
-%
-%\begin{block}{How \& When Do $\omega_i$s Occur?}
-%\vspace{-1.5ex}
-%\begin{columns}
-%\column{0.45\textwidth}
-%
-% * Saw bugs bifurcate\\*[1.25ex]
-% * Saw pendulum  jump  $\omega_i$ \\*[1.25ex]
-%  * \imply  $\omega_i$ sequential\\*[1.25ex]
-%  * Linear: $\omega_i$ simultaneous\\*[1.25ex]
-% * For 150 $t_i$ plot $(|\dot{\theta}(t_i)|, f)$\\*[1.25ex]
-% * Samples instantaneous $\dot{\theta}=d\theta/dt$\\*[1.25ex]
-% * Dominant $\omega_i$ = attractors\\*[1.25ex]
-% 
-% \column{0.55\textwidth}
-% \vspace{-2cm}\begin{figure}
-% \includegraphics[height=2in]{figures/SinglePSpend.pdf}\\
-% \vspace{-2cm}\includegraphics[height=1.75in]{figures/BifurPend.pdf}
-% \end{figure}
-% \end{columns}
-% \end{block}
-%
 
 
 
@@ -618,13 +413,4 @@ m_2l_1\dot{\theta_1}^2\sin(\theta_1-\theta_2)  +  mg\sin\theta_2 =
  \includegraphics[width=20pc]{figures/DoublePendBifur.pdf} }
 \end{figure}
 
-
-%\begin{frame}  {Double Pendulum: Movies In-Phase, Out-Phase}
-%\includemovie[poster,controls,text={loading mode1}] {5.0cm}{6.0cm}{./figures/Movies/mode1.mpg}
-%\includemovie[poster,controls,text={loading mode2}] {5.0cm}{6.0cm}{./figures/Movies/mode2.mpg}
-%%
-%\begin{frame} [label=current]{Double Pendulum: Movie: Combined Large Oscillation}
-%
-%\includemovie[poster,controls,text={loading neat}] {8.0cm}{6.0cm}{./figures/Movies/neat.mpg}
-%
 
