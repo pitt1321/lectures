@@ -20,10 +20,9 @@ The Fourier coefficients can be determined with:
 t\choose \sin n\omega t} y(t)
 \end{equation*}
 Notes:
-\begin{itemize}[<+->]
 * $a_{0} = 2 \left\langle y(t)\right\rangle$, $b_{0} = 0$.
-* If $y(t)$ odd: $y(-t) = - y(t)$  \ $\Rightarrow$ \ $a_{n} \equiv 0$.
-* If $y(t)$ even: $y(-t) = y(t)$ \ $\Rightarrow$ \ $b_{n} \equiv 0$.
+* If $y(t)$ odd: $y(-t) = - y(t)$  $\Rightarrow$ $a_{n} \equiv 0$.
+* If $y(t)$ even: $y(-t) = y(t)$ $\Rightarrow$ $b_{n} \equiv 0$.
 
 
 
@@ -91,15 +90,15 @@ FFTs in Numpy:
 * `numpy.fft` module:
 
 * Online documentation:  
-\begin{scriptsize}http://docs.scipy.org/doc/numpy/reference/routines.fft.html\end{scriptsize}
+http://docs.scipy.org/doc/numpy/reference/routines.fft.html
 * Python help: `help(numpy.fft)`
 
 * `numpy.fft` functions:
 
-* `numpy.fft.fft`\\Discrete Fourier transform.
-* `numpy.fft.ifft`\\Inverse discrete Fourier transform.
-* `numpy.fft.rfft`\\Real discrete Fourier transform.
-* `numpy.fft.irfft`\\Inverse real discrete Fourier transform.
+* `numpy.fft.fft` -- Discrete Fourier transform.
+* `numpy.fft.ifft` -- Inverse discrete Fourier transform.
+* `numpy.fft.rfft` -- Real discrete Fourier transform.
+* `numpy.fft.irfft` -- Inverse real discrete Fourier transform.
 
 
 
@@ -109,19 +108,18 @@ In `numpy.fft`, the DFT is defined as:
 \begin{equation*}
 A_{k} = \sum_{n=0}^{N-1}a_n e^{-2\pi i n k/N} \qquad k=0, 1, \ldots, N-1 \qquad \Delta f = \tfrac{1}{N\Delta t}
 \end{equation*}
-\vspace{-3mm}
 
-* The values in the result follow "standard" order: If `A = numpy.fft.fft(a, N)` $\rightarrow$ \verb$A[0]$ contains the zero-frequency term, which is purely real for real inputs. 
-* `A[1:N/2]` contains the positive-frequency terms, and \verb$A[N/2+1:]$ contains the negative-frequency terms, in order of decreasingly negative frequency. 
+* The values in the result follow "standard" order: If `A = numpy.fft.fft(a, N)` $\rightarrow$ `A[0]` contains the zero-frequency term, which is purely real for real inputs. 
+* `A[1:N/2]` contains the positive-frequency terms, and `A[N/2+1:]` contains the negative-frequency terms, in order of decreasingly negative frequency. 
 * For even $N$, `A[N/2]` represents both positive and negative Nyquist frequency, and is also real for real input. 
-* For odd $N$, `A[(N-1)/2]` contains the largest positive frequency, while \verb$A[(N+1)/2]$ contains the largest negative frequency. 
+* For odd $N$, `A[(N-1)/2]` contains the largest positive frequency, while `A[(N+1)/2]` contains the largest negative frequency. 
 
 
 
 #### Fast Fourier Transform (FFT)
 
 * `numpy.fft.fftfreq(N)` returns an array giving the frequencies of corresponding elements in the output. 
-* The routine `np.fft.fftshift(A)` shifts transforms and their frequencies to put the zero-frequency components in the middle, and \verb$numpy.fft.ifftshift(A)$ undoes that shift.
+* The routine `np.fft.fftshift(A)` shifts transforms and their frequencies to put the zero-frequency components in the middle, and `numpy.fft.ifftshift(A)` undoes that shift.
 
 The inverse DFT is defined as:
 \begin{equation*}
@@ -131,10 +129,10 @@ a_n = \frac{1}{N}\sum_{k=0}^{N-1}A_k e^{2\pi i n k/N} \qquad n=0, 1, \ldots, N-1
 #### Additional Notes on Real FFTs
 
 * If all the $a_k$ are real, the negative frequency terms are just the complex conjugates of the corresponding positive-frequency terms.
-* `numpy.fft.rfft` does not compute the negative frequency terms, and the length of the output is \verb$N/2+1$.
-* If `A = numpy.fft.rfft(a)`, \verb$A[0]$ contains the zero-frequency term, which must be purely real.
-* If `N` is even, \verb$A[-1]$ contains the term for frequencies \verb$N/2$ and \verb$-N/2$, and must also be purely real.
-* If `N` is odd, \verb$A[-1]$ contains the term for frequency \verb$A[(N-1)/2]$, and is complex in the general case.
+* `numpy.fft.rfft` does not compute the negative frequency terms, and the length of the output is `N/2+1`.
+* If `A = numpy.fft.rfft(a)`, `A[0]` contains the zero-frequency term, which must be purely real.
+* If `N` is even, `A[-1]` contains the term for frequencies `N/2` and `-N/2`, and must also be purely real.
+* If `N` is odd, `A[-1]` contains the term for frequency `A[(N-1)/2]`, and is complex in the general case.
 
 
 
