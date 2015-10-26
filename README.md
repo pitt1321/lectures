@@ -81,6 +81,14 @@ Please watch and read these -- it will save valuable class time.
       - "Encountering a Bug", "Print Statements", "Interactive Debugging", "Debugging in Python (pdb)", "Profile"
 
 9. Week of 10/26
+  - 10/28
+    * Discrete Fourier Transforms
+      - http://mathworld.wolfram.com/DiscreteFourierTransform.html
+    * M_Math_Phys_and_AHDN.pdf
+  - 10/30
+    * Fourier Transforms
+      - http://mathworld.wolfram.com/FourierTransform.html
+
 10. Week of 11/02
 11. Week of 11/09
 12. Week of 11/16
