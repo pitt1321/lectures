@@ -90,6 +90,13 @@ Please watch and read these -- it will save valuable class time.
       - http://mathworld.wolfram.com/FourierTransform.html
 
 10. Week of 11/02
+   - 11/01
+     * Logistic Map
+       - https://en.wikipedia.org/wiki/Logistic_map
+   - 11/03
+     * Double Full Pendulum
+       - https://en.wikipedia.org/wiki/Double_pendulum
+
 11. Week of 11/09
 12. Week of 11/16
 13. Week of 11/23
