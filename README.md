@@ -84,7 +84,7 @@ Please watch and read these -- it will save valuable class time.
   - 10/28
     * Discrete Fourier Transforms
       - http://mathworld.wolfram.com/DiscreteFourierTransform.html
-    * M_Math_Phys_and_AHDN.pdf
+    * lectures/week_09/M_Math_Phys_and_AHDN.pdf
   - 10/30
     * Fourier Transforms
       - http://mathworld.wolfram.com/FourierTransform.html
@@ -96,6 +96,7 @@ Please watch and read these -- it will save valuable class time.
    - 11/04
      * Double Full Pendulum
        - https://en.wikipedia.org/wiki/Double_pendulum
+       - lectures/week_10/DoublePendulum.pdf
 
 11. Week of 11/09
 12. Week of 11/16
