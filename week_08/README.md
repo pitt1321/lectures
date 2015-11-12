@@ -234,12 +234,12 @@ F_{yN}
 #### Velocity Verlet Method
 
 * The *Velocity Verlet* method is a symplectic method which looks like a cross between the symplectic Euler method and the midpoint method:
-\begin{enumerate}
+
 * $\vec{v}\left(t + \tfrac{1}{2} \delta t\right) = \vec{v}(t) + \tfrac{1}{2}\vec{a}(t) \delta t$
 * $\vec{x}(t + \delta t) = \vec{x}(t) + \vec{v}\left(t + \tfrac{1}{2} \delta t\right)\delta t$
 * Use $\vec{f}\left(\vec{x}(t+\delta t)\right)$ to get $\vec{a}(t+\delta t)$
 * $\vec{v}(t + \delta t) = \vec{v}\left(t + \tfrac{1}{2} \delta t\right) + \tfrac{1}{2}\vec{a}(t+\delta t) \delta t$
-\end{enumerate}
+
 * The global error is $\mathcal{O}\left(\delta t^2\right)$.
 
 * Same order error as midpoint method (RK2).
