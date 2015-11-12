@@ -15,9 +15,9 @@
 
 *  Ferromagnets $= \sum$ finite **domains**   
 *   Domain: all   atoms' spins aligned  
-*   External $\vec{B}$:  align domains \imply **magnetized**  
+*   External $\vec{B}$:  align domains $\implies$ **magnetized**  
 *   $T\ \uparrow: \ \sum$  magnetism $\downarrow$ (spins flip?)  
-*   @ $T_{curie}$: **phase transition**,  $\vec{M} \ =\ 0$   
+*   @ $T_{\rm curie}$: **phase transition**,  $\vec{M} \ =\ 0$   
 
 ### Ising Model
 
@@ -28,9 +28,9 @@
 
 ''                              |'' 
 ----------------------------- | --------------------
- * Same model 2-D, 3-D        | * Particle $i$,  spin
- * Fixed \imply no movements  | * $s_{i \equiv  s_{z,i} = \pm \frac{1}{2}$}
- * Spin dynamics              | *  $\Psi$:   $N$ spin values
+Same model 2-D, 3-D           | Particle $i$,  spin
+Fixed $\implies$ no movements | $s_{i} \equiv  s_{z,i} = \pm \frac{1}{2}$
+Spin dynamics                 | $\Psi$:   $N$ spin values
 
 
 $$
@@ -49,8 +49,8 @@ $$
 ![](figures/figure151c.png)
 
 
-* $s_i = \uparrow, \downarrow$ \imply  $2^{N}$  states  
-* Fixed \imply no exchange  
+* $s_i = \uparrow, \downarrow$ $\implies$  $2^{N}$  states  
+* Fixed $\implies$ no exchange  
 * Energy: $\vec{\mu}\cdot\vec{\mu}$ +  $\vec{\mu}\cdot\vec{B}$  
 * $J$ = **exchange energy**
 
@@ -74,8 +74,8 @@ $$
 
  *   $2^{N}\ \rightarrow$ large  ($2^{20} > 10^6$)  
  * $10^{23}$: hah!  
- * $B_{ext}\rightarrow 0$ \imply no direction   
-  * \imply $<\vec{M}> = 0$   
+ * $B_{ext}\rightarrow 0$ $\implies$ no direction   
+  * $\implies$ $<\vec{M}> = 0$   
   * Yet  spins aligned??  
   *  Spontaneous reversal  
 
@@ -148,7 +148,7 @@ k T_c &\ \simeq\ & 2.269185 J, \quad z= e^{-2J/k_BT},
 #### Basic Concepts (Mystery That It Works)
 
  * Boltzmann $\ \nRightarrow\ $ system remain  lowest $E$ state  
- * Boltzmann \imply  higher $E$ less likely than lower $E$  
+ * Boltzmann $\implies$  higher $E$ less likely than lower $E$  
  * $T \rightarrow 0$: only lowest $E$  
  * Finite $T$: $\ \Delta E \ \sim \ k_BT$  fluctuations $\sim$  equilibrium  
  * Metropolis,  Rosenbluth, Teller \& Teller: $n$ transport  
