@@ -1,104 +1,85 @@
-# READING for Physics 1321 (Fall 2015)
+# READING for Physics 1321 (Fall 2016)
 
-Textbook is "Effective Computation in Physics"  ECP  
-Additional resources will be listed  
-These will include many online tutorials.  
-Please watch and read these -- it will save valuable class time.
+Textbook is "Computational Physics" by Mark Newman.  This book is referred to as "CP"  below.
+Additional resources will be listed.  These will include many online tutorials.  Please watch and read these materials -- it will save valuable class time. 
+As a general rule you will find yourself doing much more reading in the first month and much more timing designing and coding in the subsequent months.
 
-1. Week of 08/31
+1. Week of 08/29  "Introduction"
+  - 08/29
+      + CP 1 "Introduction"
+  - 08/31
+      + CP 2.1-2.3 "Getting Started", "Basic programming", "Controlling programs with 'if' and 'while'"
+      + iPython quick intro:  https://youtu.be/H6dLGQw9yFQ  
   - 09/02 
-    * ECP 1 "Introduction to the Command Line:"
-       - "Navigating the Shell", "Manipulating Files and Directories"
-    * ECP 2 "Programming Blastoff with Python:"
-       - "Running Python", "Comments", "Variables", "Special Variables", "Operators", "Strings"
-    * iPython quick intro:  https://youtu.be/H6dLGQw9yFQ  
-  - 09/04 
-    * 'Numerical precision and "Big Data"' by Erich Schubert  
+      + CP 2.4-2.5 "Lists and Arrays", "'For' Loops"
+      + http://rogerdudler.github.io/git-guide/
+
+2. Week of 09/05  "Python"
+  - 09/07 
+      + CP 2.6-2.7 "User-Defined Functions", "Good Programming Style"
+      + https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
+      + https://help.github.com/categories/bootcamp/
+  - 09/09
+      + CP 3 "Graphics and visualization"
+      + https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
+      + Minimalist `git` guide: http://rogerdudler.github.io/git-guide/
+
+3. Week of 09/12 "Random Numbers and Monte Carlog Integration"
+  - 09/12
+      + CP 4 "Variables and Ranges", "Numerical Error", "Program Speed"
+      + 'Numerical precision and "Big Data"' by Erich Schubert  
       http://www.vitavonni.de/blog/201311/2013110201-numerical-precision-and-big-data.html
-2. Week of 09/07
-  - 09/09 
-    * ECP 2 "Programming Blastoff with Python" up to "Strings"
-      - "Modules", "Python Wrap-Up"
-    * ECP 15 "Local Version Control"
-  - 09/11 
-    * "What Every Computer Scientist Should Know About Floating-Point Arithmetic"  
+      + "What Every Computer Scientist Should Know About Floating-Point Arithmetic"  
       David Goldberg, 1991.  
       http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
-       - Read up through and including "Relative Error and Ulps"
-3. Week of 09/14
-  - 09/14  ECP 5 "Operating with Functions"
-    * "Functions in Python", "Keyword Arguments", "Variable Number of Arguments", "Multiple Return Values"
-  - 09/16  
-    * Random numbers
-  - 09/18  
-4. Week of 09/21
+        - Read up through and including "Relative Error and Ulps"
+  - 09/14  
+      + CP 10 "Random numbers"
+  - 09/16
+      + CP 10 "Monte Carlo integration"
+
+4. Week of 09/19 "Numerical Integration"
+  - 09/19
+      + CP 5.1, 5.2, 5.3, 5.4 "Fundamental methods for evaluating integrals", "Errors on integrals", "Choosing the number of steps", "Romberg integration"
   - 09/21
-    * ECP 19 "Testing"  (first half)
-      - "Why Do We Test?", "When Should We Test?", "Where Should We Write Tests?", "What and How to Test?", "Running Tests", "Edge Cases", "Unit Tests" 
-    * https://en.wikipedia.org/wiki/Numerical_integration
-    * https://en.wikipedia.org/wiki/Rectangle_method
-    * https://en.wikipedia.org/wiki/Trapezoidal_rule
-    * https://en.wikipedia.org/wiki/Simpson's_rule
-  - 09/22
-    * ECP 19 "Testing"  (second half)
-      - "Integration Tests", "Regression Tests", "Test Generators", "Test Coverage", "Test-Driven Development", "Testing Wrap-Up"
-    * Either of: 
-      - https://en.wikipedia.org/wiki/Gaussian_quadrature
-      - http://nm.mathforcollege.com/topics/gauss_quadrature.html
-         * select just a couple of useful links from this one: there are PDFs, videos, interactive web pages, etc.
+      + CP 5.5, 5.6, 5.7 "Higher-order integration methods", "Gaussian quadrature", "Choosing an integration method"
+  - 09/23
+      + *Why to Test your Code*, *How to Test your Code*
 
-5. Week of 09/28
-  - 9/28 
-    * ECP 9 "NumPy: Thinking in Arrays"
-      - "Arrays", "dtypes", "Slicing and Views", "Arithmetic and Broadcasting", "Universal Functions, "Other Valuable Functions"
-      [You can skip "Fancy Indexing", "Masks", and "Structured Arrays".]
-    * https://en.wikipedia.org/wiki/Numerical_differentiation
-  - 9/30
-    * ECP 4 "Flow Control and Logic"  [all]
-      - "Conditionals", "Exceptions", "Loops", "Comprehensions"
-    * https://en.wikipedia.org/wiki/Finite_difference
-       - Up to and including "5. Newton's Series"
-    * https://en.wikipedia.org/wiki/Finite_difference_method
+5. Week of 09/26 "Numerical Differentiation"
+  - 09/26 
+    + CP 5.10.1-5.10.3 "Derivatives" (Part 1): "Forward and backward differences", "Errors", "Central differences", "HIgher-order approximations for derivatives"
+  - 09/28
+    + CP 5.10.4-5.10.7 "Derivatives" (Part 2): "Second derivatives", "Partial derivatives", "Derivatives of noisy data"
 
-6. Week of 10/05
+6. Week of 10/03
   - 10/05
-    * ECP 3 "Essential Containers"  [all]
-      - "Lists", "Tuples", "Sets", "Dictionaries"
   - 10/07
-    * ECP 1 "Introduction to the Command Line:"
-      - "Getting Help", "Permissions and Sharing", "The Environment", "Scripting with Bash", "Command Line Wrap-Up"
 
-7. Week of 10/12
+7. Week of 10/10 "Ordinary differential equations"
+  - 10/10
+    + CP 8.1 "First-order differential equations with one variable"
   - 10/12
-    * https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations
-    * https://en.wikipedia.org/wiki/Explicit_and_implicit_methods
-    * https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
-  - 10/14
-    * https://en.wikipedia.org/wiki/Runge-Kutta_methods
+    + CP 8.2 "First-order differential equations with more than one variable"
 
-8. Week of 10/19
-    * ECP 17 "Debugging"  [all]
-      - "Encountering a Bug", "Print Statements", "Interactive Debugging", "Debugging in Python (pdb)", "Profile"
+8. Week of 10/17 "Partial differential equastions"
+  - 10/17
+    + CP 9.1 "Boundary value problems and the relaxation method"
+  - 10/19
+    + CP 9.2 "Faster methods for boundary value problems"
+  - 10/21
+    + CP 9.3 "Initial value problems"
 
-9. Week of 10/26
-  - 10/28
-    * Discrete Fourier Transforms
-      - http://mathworld.wolfram.com/DiscreteFourierTransform.html
-    * lectures/week_09/M_Math_Phys_and_AHDN.pdf
-  - 10/30
-    * Fourier Transforms
-      - http://mathworld.wolfram.com/FourierTransform.html
+9. Week of 10/24
+  - 10/24
+    + CP 7.1, 7.2 "Fourier series", "The discrete Fourier transform"
+    + lectures/week_09/M_Math_Phys_and_AHDN.pdf
+  - 10/26
+    + CP 7.3, 7.4 "Discrete cosine and sine transforms", "Fast Fourier transforms"
 
-10. Week of 11/02
-   - 11/02
-     * Logistic Map
-       - https://en.wikipedia.org/wiki/Logistic_map
-   - 11/04
-     * Double Full Pendulum
-       - https://en.wikipedia.org/wiki/Double_pendulum
-       - lectures/week_10/DoublePendulum.pdf
-
-11. Week of 11/09
-12. Week of 11/16
-13. Week of 11/23
-14. Week of 11/30
+10. Week of 10/31
+11. Week of 11/07
+12. Week of 11/14
+13. Week of 11/21
+14. Week of 11/28
+15. Week of 12/05
