@@ -24,7 +24,7 @@ As a general rule you will find yourself doing much more reading in the first mo
       + https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
       + Minimalist `git` guide: http://rogerdudler.github.io/git-guide/
 
-3. Week of 09/12 "Random Numbers and Monte Carlog Integration"
+3. Week of 09/12 "Random Numbers and Monte Carlo Integration"
   - 09/12
       + CP 4 "Variables and Ranges", "Numerical Error", "Program Speed"
       + 'Numerical precision and "Big Data"' by Erich Schubert  
