@@ -19,6 +19,7 @@ As a general rule you will find yourself doing much more reading in the first mo
       + CP 2.6-2.7 "User-Defined Functions", "Good Programming Style"
       + https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
       + https://help.github.com/categories/bootcamp/
+      + https://www.youtube.com/watch?v=2g9lsbJBPEs
   - 09/09
       + CP 3 "Graphics and visualization"
       + https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
