@@ -47,15 +47,25 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 09/23
       + *Why to Test your Code*, *How to Test your Code*
 
-5. Week of 09/26 "Numerical Differentiation"
+5. Week of 09/26 "Numerical Differentiation and Linear Algebra"
   - 09/26 
-    + CP 5.10.1-5.10.3 "Derivatives" (Part 1): "Forward and backward differences", "Errors", "Central differences", "HIgher-order approximations for derivatives"
+      + CP 5.10.1-5.10.3 "Derivatives" (Part 1): "Forward and backward differences", "Errors", "Central differences", "Higher-order approximations for derivatives"
   - 09/28
-    + CP 5.10.4-5.10.7 "Derivatives" (Part 2): "Second derivatives", "Partial derivatives", "Derivatives of noisy data"
+      + CP 5.10.4-5.10.7 "Derivatives" (Part 2): "Second derivatives", "Partial derivatives", "Derivatives of noisy data"
+  - 09/30
+      + CP 6.1 "Simultaneous Linear Equations"
+      + Arrays, saving and loading simple arrays with `numpy`
+      + http://docs.scipy.org/doc/numpy/reference/routines.array-creation.html
 
-6. Week of 10/03
+6. Week of 10/03 "Saving, and Loading."
+  - 10/03
+      + Review CP 2.4.2
+      + http://docs.scipy.org/doc/numpy/reference/generated/numpy.savetxt.html
+      + http://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html
+      + Review `numpy.loadtxt` CP 2.4.3
   - 10/05
-  - 10/07
+      + CP 6.2 "Nonlinear Equations"
+      + http://docs.scipy.org/doc/numpy/reference/routines.linalg.html
 
 7. Week of 10/10 "Ordinary differential equations"
   - 10/10
