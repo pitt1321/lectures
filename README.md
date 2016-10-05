@@ -66,6 +66,10 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 10/05
       + CP 6.3 "Nonlinear Equations"
       + http://docs.scipy.org/doc/numpy/reference/routines.linalg.html
+  - 10/07
+      + http://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html#scipy.optimize.curve_fit
+      + To avoid more detail than you ever wanted to know, you can skip reading the links at:
+      http://docs.scipy.org/doc/scipy/reference/optimize.html
 
 7. Week of 10/10 "Ordinary differential equations"
   - 10/10
