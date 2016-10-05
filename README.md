@@ -64,7 +64,7 @@ As a general rule you will find yourself doing much more reading in the first mo
       + http://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html
       + Review `numpy.loadtxt` CP 2.4.3
   - 10/05
-      + CP 6.2 "Nonlinear Equations"
+      + CP 6.3 "Nonlinear Equations"
       + http://docs.scipy.org/doc/numpy/reference/routines.linalg.html
 
 7. Week of 10/10 "Ordinary differential equations"
