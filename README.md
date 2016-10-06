@@ -37,7 +37,9 @@ As a general rule you will find yourself doing much more reading in the first mo
         - Read up through and including "Relative Error and Ulps"
   - 09/14  
       + CP 10 Introduction
+      + CP 10.1 "Random numbers"
   - 09/16
+      + CP 10.2 "Monte Carlo integration"
 
 4. Week of 09/19 "Numerical Integration"
   - 09/19
