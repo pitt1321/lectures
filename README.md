@@ -8,6 +8,7 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 08/29
       + CP 1 "Introduction"
   - 08/31
+      + CP 2 Introduction
       + CP 2.1-2.3 "Getting Started", "Basic programming", "Controlling programs with 'if' and 'while'"
       + iPython quick intro:  https://youtu.be/H6dLGQw9yFQ  
   - 09/02 
@@ -35,12 +36,12 @@ As a general rule you will find yourself doing much more reading in the first mo
       http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
         - Read up through and including "Relative Error and Ulps"
   - 09/14  
-      + CP 10 "Random numbers"
+      + CP 10 Introduction
   - 09/16
-      + CP 10 "Monte Carlo integration"
 
 4. Week of 09/19 "Numerical Integration"
   - 09/19
+      + CP 5 Introduction
       + CP 5.1, 5.2, 5.3, 5.4 "Fundamental methods for evaluating integrals", "Errors on integrals", "Choosing the number of steps", "Romberg integration"
   - 09/21
       + CP 5.5, 5.6, 5.7 "Higher-order integration methods", "Gaussian quadrature", "Choosing an integration method"
@@ -53,6 +54,7 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 09/28
       + CP 5.10.4-5.10.7 "Derivatives" (Part 2): "Second derivatives", "Partial derivatives", "Derivatives of noisy data"
   - 09/30
+      + CP 6 Introduction
       + CP 6.1 "Simultaneous Linear Equations"
       + Arrays, saving and loading simple arrays with `numpy`
       + http://docs.scipy.org/doc/numpy/reference/routines.array-creation.html
@@ -73,12 +75,14 @@ As a general rule you will find yourself doing much more reading in the first mo
 
 7. Week of 10/10 "Ordinary differential equations"
   - 10/10
+    + CP 8 Introduction
     + CP 8.1 "First-order differential equations with one variable"
   - 10/12
     + CP 8.2 "First-order differential equations with more than one variable"
 
 8. Week of 10/17 "Partial differential equastions"
   - 10/17
+    + CP 9 Introduction
     + CP 9.1 "Boundary value problems and the relaxation method"
   - 10/19
     + CP 9.2 "Faster methods for boundary value problems"
@@ -87,6 +91,7 @@ As a general rule you will find yourself doing much more reading in the first mo
 
 9. Week of 10/24
   - 10/24
+    + CP 7 Introduction
     + CP 7.1, 7.2 "Fourier series", "The discrete Fourier transform"
     + lectures/week_09/M_Math_Phys_and_AHDN.pdf
   - 10/26
