@@ -81,6 +81,9 @@ As a general rule you will find yourself doing much more reading in the first mo
     + CP 8.1 "First-order differential equations with one variable"
   - 10/12
     + CP 8.2 "First-order differential equations with more than one variable"
+    + CP 8.3 "Second-order differential equations"
+  - 10/14
+    + CP 8.6 "Boundary value problems"
 
 8. Week of 10/17 "Partial differential equastions"
   - 10/17
