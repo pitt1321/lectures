@@ -61,7 +61,7 @@ As a general rule you will find yourself doing much more reading in the first mo
       + Arrays, saving and loading simple arrays with `numpy`
       + http://docs.scipy.org/doc/numpy/reference/routines.array-creation.html
 
-6. Week of 10/03 "Saving, and Loading."
+6. Week of 10/03 "Saving, Loading, and Fitting."
   - 10/03
       + Review CP 2.4.2
       + http://docs.scipy.org/doc/numpy/reference/generated/numpy.savetxt.html
@@ -80,12 +80,15 @@ As a general rule you will find yourself doing much more reading in the first mo
     + CP 8 Introduction
     + CP 8.1 "First-order differential equations with one variable"
   - 10/12
-    + CP 8.2 "First-order differential equations with more than one variable"
     + CP 8.3 "Second-order differential equations"
-  - 10/14
-    + CP 8.6 "Boundary value problems"
 
-8. Week of 10/17 "Partial differential equastions"
+8. Week of 10/17 "Ordinary differential equations (cont.)"
+  - 10/17
+    + CP 8.2 "First-order differential equations with more than one variable"
+  - 10/19
+    + CP 8.5 "Other methods for differential equations"
+
+9. Week of 10/24 "Partial differential equations"
   - 10/17
     + CP 9 Introduction
     + CP 9.1 "Boundary value problems and the relaxation method"
@@ -94,7 +97,7 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 10/21
     + CP 9.3 "Initial value problems"
 
-9. Week of 10/24
+10. Week of 10/31 "Fourier Transforms"
   - 10/24
     + CP 7 Introduction
     + CP 7.1, 7.2 "Fourier series", "The discrete Fourier transform"
@@ -102,8 +105,8 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 10/26
     + CP 7.3, 7.4 "Discrete cosine and sine transforms", "Fast Fourier transforms"
 
-10. Week of 10/31
-11. Week of 11/07
+11. Week of 11/07 "Chaos and Non-Linear Systems"
+
 12. Week of 11/14
 13. Week of 11/21
 14. Week of 11/28
