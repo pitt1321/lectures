@@ -4,327 +4,135 @@
 ##### [based on materials from Prof. Brian D'Urso]
 ##### University of Pittsburgh, Department of Physics and Astronomy
 
-### Problem
-#### Problem: Why Is Nature So Complicated?
+* Analytical Fourier Series and Transforms
+* Discrete Fourier Transforms
 
-* Insect populations, weather patterns
-* Complex behavior
-* Stable,  periodic,   chaotic, stable, \ldots
-*  **Problem:** can a simple, discrete law  produce such complicated
-behavior?
+#### Fourier Series
+For a periodic function $y(t)$ with period $T$:
+\begin{equation*}
+y(t) = \frac{a_{0}}{2} + \sum_{n=1}^{\infty} \left(a_{n} \cos
+n\omega t + b_{n} \sin n\omega t
+\right)
+\end{equation*}
+The Fourier coefficients can be determined with:
+\begin{equation*}
+{a_n\choose b_n}  =\frac{2}{T} \int _{0}^{T} dt {\cos n\omega
+t\choose \sin n\omega t} y(t)
+\end{equation*}
+Notes:
+* $a_{0} = 2 \left\langle y(t)\right\rangle$, $b_{0} = 0$.
+* If $y(t)$ odd: $y(-t) = - y(t)$  $\Rightarrow$ $a_{n} \equiv 0$.
+* If $y(t)$ even: $y(-t) = y(t)$ $\Rightarrow$ $b_{n} \equiv 0$.
 
 
-### Logistic Map
-#### Model Realistic Problem: Bug Cycles
 
-##### Bugs Reproduce Generation after Generation = $i$
+#### Fourier Transforms
+For a function $y(t)$ defined at all times:
+\begin{equation*}
+y(t)=\int_{-\infty}^{+\infty} d\omega\ Y(\omega)\, \frac{e^{+i\omega t}} {\sqrt{2\pi}}
+\end{equation*}
+Fourier transform $Y(\omega)$ can be determined with:
+\begin{equation*}
+Y(\omega)=\int_{-\infty}^{+\infty} dt\, \, y(t)\, \frac{e^{-i\omega t}} {\sqrt{2\pi}}
+\end{equation*}
+Notes:
 
-*   $N_0\ \rightarrow \  N_1, N_2, \ldots  N_\infty$
-*  $N_i = f(i)?$
-* Seen discrete law,
-\begin{eqnarray}
-\frac{\Delta N}{\Delta t} =\ & -\lambda N 
-\Rightarrow\   \simeq\ & e^{-\lambda t}
-\end{eqnarray}
-*   $-\lambda \rightarrow +\lambda$ $\implies$  growth
+* If $y(t)$ odd and real: $y(-t) = - y(t)$  \ $\Rightarrow$ \ $Y(\omega)$ is imaginary. 
+* If $y(t)$ even and real: $y(-t) = y(t)$ \ $\Rightarrow$ \ $Y(\omega)$ is real.
+* If $y(t)$ is purely real $\Rightarrow Y(-\omega)=\overline{Y(\omega)}$.
+* Power Spectrum: $\propto \left| Y(\omega)\right|^{2}$, maybe $\log_{10}\left|Y\right|^{2}$.
 
-![](figures/cockroach.jpg)
 
-$$
-\frac{\Delta N_i}{\Delta t} = \lambda \; N_i
-$$
 
 
-#### Refine Model: Maximum Population $N_*$
+\section[]{Discrete Fourier Transforms (DFT)}
 
-##### Incorporate Carrying Capacity into Rate
-
-* Assume  breeding rate proportional to   number of bugs:
-$$
-\frac{\Delta N_i}{\Delta t} = \lambda \; N_i
-$$
- * Want growth rate   $\downarrow$  as  $N_i \rightarrow N_{*}$
- * Assume $\lambda=\lambda' (N_*-N_i)$
-$$
-  \Rightarrow\ \ {\frac{\Delta
-N_i}{\Delta t} =
-\lambda'(N_{*}-N_i)N_i} \quad \quad \mbox{(Logistic Map)}
-$$
-* Small $N_i/N_*$ $\implies$ exponential growth
-*  $N_i \rightarrow N_*$  $\implies$ slow growth, stable, decay
+#### Discrete Fourier Transforms (DFT)
+For numerical evaluation, we have to use a finite range for $t$   
+and $N$ discrete samples of $y(t)$:
 
-
-#### Logistic as Map in Dimensionless Variables
+* $y_{k} = y(t_{k})$, $k = 0, 1,\ldots, N-1$.
+* Uniform time steps $\Delta t \rightarrow t_{k} = k \Delta t$.
+* Assume periodicity $y(t+T) = y(t)$, $T=N\Delta t$.
 
-As Population, Change Variables
-$$
-\begin{align}
-N_{i+1}  = & N_i + \lambda' \, \Delta t (N_{*}-N_i)N_i 
- {x_{i+1}} \ =\ & {\mu x_{i}(1- x_{i}) \quad\quad\mbox{(Logistic Map)}}
-\mu \deq\ & 1 + \lambda' \,\Delta  t N_{*}, \quad \quad x_{i} \deq
-\frac{\lambda' \,  \Delta  t}{\mu} N_i\simeq
-\frac{N_i}{N_{*}}
-x_{i} \simeq \frac{N_i}{N_{*}} \  =& \  \mbox{fraction of max}
-\end{align}
-$$
+The DFT will give us $Y(\omega)$ at $N$ discrete values $Y_k=Y(\omega_k)$:
 
-*   $0 \leq x_{i} \leq 1$
-*  Map: $x_{i+1} = f(x_i)$
-
-
-*  Quadratic,  1-D map
-* $f(x) = \mu x(1-x)$
-
-
-
-### Properties
-#### Properties of Nonlinear Maps (Theory)
-
-Empirical Study: Plot  $x_i$ \emph{vs}  $i$
-
-![](figures/Populations.png)
-
-* A: $\mu = \textrm{2.8}$, equilibration into single population
-* B:  $\mu = \textrm{3.3}$, oscillation between 2 population levels
-* C:  $\mu = \textrm{3.5}$ oscillation among 4 levels
-* D:    chaos
+* $\omega_k = k \Delta \omega, \qquad k = 0, 1, \ldots , N-1$.
+* $\Delta \omega = \frac{2\pi}{T}=\frac{2\pi}{N\Delta t}$.
+* $Y(\omega_k)$ is also periodic: $Y(\omega_{n+N})=Y(\omega_{n})$,  
+	so we can also shift the range of $k$.
 
-
-### Attractors
-#### Fixed Points
-$x_{i}$ Stays at $x_{*}$ or Returns
-
-![](figures/Populations.png)
 
-$$
-x_{i+1} = \mu x_i (1-x_i)
-$$
-
 
-*  One-cycle: $x_{i+1} = x_{i} = x_{*}$
-\begin{align}
-\mu x_{*} (1-x_{*}) \ = &\  x_{*}
-\Rightarrow\  x_{*}  \ =&\  0, \quad   x_{*} = \frac{\mu -
-1}{\mu}
-\end{align}
-  
-  
- #### Period Doubling, Attractors
-Unstable via  Bifurcation into 2-Cycle
-
-![](figures/Populations.png)
-
-* Attractors, cycle points
-* Predict:  same population generation $i$, $i+2$
-$$
-x_{i} = x_{i+2} = \mu x_{i+1}(1-x_{i+1})\enskip\Rightarrow\enskip
-x_{*} = \frac{1+\mu \pm \sqrt{\mu^{2}-2\mu -
-3}}{2\mu}
-$$
-*   $\mu>3$: real solutions
-* Continues 1 $\rightarrow$ 2 populations
-
-
-![](figures/bugcolor2.png)
- 
- *  Can't vary intensity
- * Vary point density
- * Resolution $\sim$  300 DPI
- *  $3000 \times 3000 \simeq 10^7$ pts
- * Big, more = waste
- * Create 1000 bins   
- * $1 \leq \mu \leq 4$
- * Print $x_{*}$  3-4 decimal places
- * Remove duplicates
- * Enlarge:  {self-similarity}
- *  Observe  windows
- 
- 
-
-
-Problem: Realistic Single or Double Pendulum
-
-Simulate Nonlinear, Chaotic System
- 
-   * Driven single pendulum 
-   * Free, double pendulum
-   * Large oscillations, even over-the-top
-   
-![](figures/BothPends.png)
-
-### ODE
-
-#### Chaotic Pendulum ODE
-##### Newton's Laws for Rotational Motion   $\sum \tau \,=\, I \ \frac{d^2\theta}{dt^2}$ 
-
-![](figures/SinglePend.png)
-
- *  Gravitation $\tau$: $-mgl\sin\theta$
- * Friction $\tau$:   $-\beta\dot{\theta}$
- * External $\tau$:  $\tau_0\cos \,\omega t$
-
- 
-\begin{align}
-I\, \frac{d^{2}\theta} {dt^{2}} = &   - {mgl}\, \sin\theta
- - \beta \, \frac{d\theta}{dt}
-  + \tau_{0} \cos\omega t 
- { \frac{d^{2}\theta} {dt^{2}}   =}  &
-  {-\omega_{0}^{2}  \,\sin \theta  -\alpha \,\frac{d\theta}{dt} +
-f\cos\omega t} 
-\end{align}
+#### Discrete Fourier Transforms (DFT)
+The formula for the forward DFT is:
+\begin{equation*}
+Y(\omega_{n}) = \sum_{k=0}^{N-1}\Delta t\, y(t_{k})\frac{e^{-i\omega_{n}t_{k}}}{\sqrt{2\pi}}
+\end{equation*}
 
-$$
-\omega_{0}    =  \frac{mgl}{I},\quad \alpha =
-\frac{\beta}{I}, \quad f =\frac{\tau_0}{I}
-$$
+* $t_{k} = k \Delta t, \qquad k = 0, 1,\ldots, N-1$.
 
- 
-#### Chaotic Pendulum ODE
-##### Standard ODE Form (rk4): $\quad \dot{\vec{y}} = \vec{f}(\vec{y}, t)$}
-
-![](figures/SinglePend.png)
-
-
-  $$ \frac{d^{2}\theta}{dt^{2}}   =
--\omega_{0}^{2}  \,\sin \theta  -\alpha \,\frac{d\theta}{dt} +
-f\cos\omega t
-$$
-
- * 2$^{nd}$ O t-dependent nonlinear ODE
-* Nonlinearity:  $\sin\theta \simeq \theta -\theta^3/3! \cdots$
- * $ y^{(0)} =  \theta(t), \quad y^{(1)} = \frac{d\theta(t)}{dt}$
-
-  \begin{align}
-{\frac{dy^{(0)}}{dt} \ =\ }&  {y^{(1)}}
-{\frac{dy^{(1)}}{dt}  \ =\  }& {- \omega_{0}^{2} \sin y^{(0)} - \alpha
-y^{(1)} + f\cos\omega t}
-\end{align}
+The inverse transform is:
+\begin{equation*}
+y(t) = \sum_{n=0}^{N-1}\frac{2\pi}{N\Delta t}\, \frac{e^{i \omega_{n}t}}{\sqrt{2\pi}} Y(\omega_{n})
+\end{equation*}
 
+* $\omega_k = k \Delta \omega, \qquad k = 0, 1, \ldots , N-1$.
+* $\Delta \omega = \frac{2\pi}{T}=\frac{2\pi}{N\Delta t}$
 
-### Free Pend
 
-#### Start Simply: Free Oscillations (Test Algorithm \& Physics)
-Ignore Friction \& External Torques ($f= \alpha = 0$)
 
-![](figures/FreePend.png)
+#### Fast Fourier Transform (FFT)
+The FFT is an efficient algorithm for computing the DFT  
+when $N$ is an integer power of 2.  
+FFTs in Numpy:
 
-\begin{align}
- {\ddot{\theta}  =} & {-\omega_{0}^{2} \sin \theta }  \label{6}
-  \ddot{\theta} \  \simeq\  & -\omega_0^2 \theta \quad\quad \mbox{(linear,  $\theta\simeq 0$)}\nonumber
- \Rightarrow \enskip\theta(t) \ =\  & \theta_{0} \sin(\omega_{0} t
-+ \phi)
-\end{align}
+* `numpy.fft` module:
 
-''Analytic solution''; sort of:
+* Online documentation:  
+http://docs.scipy.org/doc/numpy/reference/routines.fft.html
+* Python help: `help(numpy.fft)`
 
-$$
- T  \propto
-\int_{0}^{\theta_m}\frac{d\theta}{ \left[\sin^{2}({\theta_m}/{2})
-- \sin^{2}({\theta}/{2})\right]^{1/2}}
-$$
+* `numpy.fft` functions:
 
-#### Visualization: Phase Space Orbits
-##### Abstract Space: $v(t)$ vs $x(t)\ $ ($x$ vs $t$, $v$ vs $t$= Complicated)}
+* `numpy.fft.fft` -- Discrete Fourier transform.
+* `numpy.fft.ifft` -- Inverse discrete Fourier transform.
+* `numpy.fft.rfft` -- Real discrete Fourier transform.
+* `numpy.fft.irfft` -- Inverse real discrete Fourier transform.
 
-![](figures/Fig127Mod.png)
 
-* Geometry easy to "see"
-* SHM: Ellipse, $E\rightarrow$ size
-* Anharmonic:  + corners
- 
- * Ossc $\implies$ CW Closed
- * Non Ossc, repulse = open
 
-\begin{align}
-x(t)=&  A \sin(\omega t),\quad v(t)   = \omega A
-\cos(\omega t)\quad (SHM)
-E  = & {\rm KE} + {\rm PE} =   m {v^{2}}/2 +
- \omega^{2}m^{2}{x^{2}}/2=  \mbox{ellipse}
-\end{align}
 
+#### Fast Fourier Transform (FFT)
+In `numpy.fft`, the DFT is defined as:
+\begin{equation*}
+A_{k} = \sum_{n=0}^{N-1}a_n e^{-2\pi i n k/N} \qquad k=0, 1, \ldots, N-1 \qquad \Delta f = \tfrac{1}{N\Delta t}
+\end{equation*}
 
- #### Undriven, Frictionless Pendulum in Phase Space
+* The values in the result follow "standard" order: If `A = numpy.fft.fft(a, N)` $\rightarrow$ `A[0]` contains the zero-frequency term, which is purely real for real inputs. 
+* `A[1:N/2]` contains the positive-frequency terms, and `A[N/2+1:]` contains the negative-frequency terms, in order of decreasingly negative frequency. 
+* For even $N$, `A[N/2]` represents both positive and negative Nyquist frequency, and is also real for real input. 
+* For odd $N$, `A[(N-1)/2]` contains the largest positive frequency, while `A[(N+1)/2]` contains the largest negative frequency. 
 
-Separatrix  Separates Open \& Closed Orbits
-![](figures/Fig128leftMod.png)
 
-  * Closed: oscillation
-  * Open: rotation
-  * Both: periodic
- *  Orbits do not cross
 
- *  Open orbits touch
- * Hyperbolic points
- * Unstable equilibrium
+#### Fast Fourier Transform (FFT)
 
- #### Include Friction, Driving Torque (small t steps)
+* `numpy.fft.fftfreq(N)` returns an array giving the frequencies of corresponding elements in the output. 
+* The routine `np.fft.fftshift(A)` shifts transforms and their frequencies to put the zero-frequency components in the middle, and `numpy.fft.ifftshift(A)` undoes that shift.
 
-##### Geometry Tends to Remain
+The inverse DFT is defined as:
+\begin{equation*}
+a_n = \frac{1}{N}\sum_{k=0}^{N-1}A_k e^{2\pi i n k/N} \qquad n=0, 1, \ldots, N-1
+\end{equation*}
 
-![](figures/Limit.png)
+#### Additional Notes on Real FFTs
 
- *  Friction $\implies$ $\downarrow$ E
- *  Inward Spiral
- * $\tau_{\rm ext}$ can put $E$ back
+* If all the $a_k$ are real, the negative frequency terms are just the complex conjugates of the corresponding positive-frequency terms.
+* `numpy.fft.rfft` does not compute the negative frequency terms, and the length of the output is `N/2+1`.
+* If `A = numpy.fft.rfft(a)`, `A[0]` contains the zero-frequency term, which must be purely real.
+* If `N` is even, `A[-1]` contains the term for frequencies `N/2` and `-N/2`, and must also be purely real.
+* If `N` is odd, `A[-1]` contains the term for frequency `A[(N-1)/2]`, and is complex in the general case.
 
- * Limit cycle = Balance 
- * $<\tau_{\rm ext}> \ = \ <\mbox{friction}> $
-
-
-#### Chaos As Viewed in Phase Space (Full Solution)
-
-##### Look for in Your Simulations
-
-![](figures/PSplotPend.png)
- 
-  * Complex $\leq$ Chaos $\leq$ Rand
-  * Fixed Params, all $x_0$, $t$s:  flows 
- 
- * Chaos complex $\neq$ mess
- * Figs distort, remains
- * Closed = periodic 
- * Simplicity in chaos [PS, $\neq \theta(t)$]
-  * $\rightarrow$ attractors (return)
-  * Random = cloud fill $E$
-  * {Bands} $\implies$ continuity, sequential
-  * $\implies$ hypersensitive $\theta(t)$
-  * Tools measure chaos
- 
-
-
-
-
-
-### Double Pendulum
-#### Double Pendulum: Alternative Problem
-
-##### Chaos without External Torque or Friction
-![](figures/DoublePendPhoto.png})
-
-* No small-$\theta$
-* Coupling = extra degree freedom
-* Small $\theta$: in-$\phi$, out-$\phi$
-
-
-\begin{align}
-L =& {\rm KE}-{\rm PE} =  (m_1+m_2) l_1^2
-\dot{\theta_1}^2/2 +  m_2l_2^2\dot{\theta_2}^2/2\\
-& +\, m_2l_1l_2
-\dot{\theta_1}\dot{\theta_2}\cos(\theta_1-\theta_2) +(m_1+m_2)g
-l_1\cos\theta_1 + m_2g l_2\cos\theta_2 \nonumber
-\Rightarrow\quad & (m_1+m_2)l_1\ddot{\theta_1} +
-m_2l_2\ddot{\theta_2}\cos(\theta_1-\theta_2) + m_2 l_2 \dot{\theta_2}^2
-\sin(\theta_1-\theta_2)
-&\quad + g(m_1+m_2)\sin\theta_1 = 0  \nonumber\\
-&m_2l_2\ddot{\theta_2}+m_2l_1\ddot{\theta_1}\cos(\theta_1-\theta_2)-
-m_2l_1\dot{\theta_1}^2\sin(\theta_1-\theta_2)  +  mg\sin\theta_2 =
-0
-\end{align}
-
-
-#### Double Pendulum: Bifurcations
-
-![](figures/DoublePend.png)
-![](figures/DoublePendBifur.png)
 
 

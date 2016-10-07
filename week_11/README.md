@@ -1,341 +1,330 @@
 # Computational methods in Physics
-## Week 12
+## Week 11
 #### Prof. Michael Wood-Vasey
 ##### [based on materials from Prof. Brian D'Urso]
 ##### University of Pittsburgh, Department of Physics and Astronomy
 
-#### ODE Initial Value Problems
-We have been solving equations like:
-\begin{equation*}
-\frac{d\mathbf{y}(t)} {dt} =  \mathbf{f}(\mathbf{y}, t)
-\end{equation*}
-where:
+### Problem
+#### Problem: Why Is Nature So Complicated?
 
-* The function $\mathbf{f}(\mathbf{y}, t)$ is given.
-* An initial condition is given, e.g. $y(0) = 1.0$.
-* The problem is to find $\mathbf{y}(t)$ for a requested range of $t$.
-* We refer to finding the solution $\mathbf{y}(t)$ as
-solving or integrating a
-first order
-ordinary differential equation (ODE)
-initial value problem.
+* Insect populations, weather patterns
+* Complex behavior
+* Stable,  periodic,   chaotic, stable, \ldots
+*  **Problem:** can a simple, discrete law  produce such complicated
+behavior?
 
-#### Partial Differential Equations (PDEs)
 
-* PDEs contain derivatives with respect to multiple variables, e.g.: $\frac{\partial U}{\partial t}$, $\frac{\partial U}{\partial x}$, etc.
-* The solution to our PDE is a field, e.g. $U(x, y, z, t)$.
-* $U$ might be a physical quantity e.g. ($T$, $P$) which varies continuously in $x$ and $t$.
-* Changes in $U(x,y,z,t)$ affect $U$ nearby.
-*  What about boundary conditions or initial conditions?
-*  How do we solve PDEs numerically?
+### Logistic Map
+#### Model Realistic Problem: Bug Cycles
 
-* Need to discretize multiple independent variables.
+##### Bugs Reproduce Generation after Generation = $i$
 
-#### General Forms of 2-D PDEs
+*   $N_0\ \rightarrow \  N_1, N_2, \ldots  N_\infty$
+*  $N_i = f(i)?$
+* Seen discrete law,
+\begin{eqnarray}
+\frac{\Delta N}{\Delta t} =\ & -\lambda N 
+\Rightarrow\   \simeq\ & e^{-\lambda t}
+\end{eqnarray}
+*   $-\lambda \rightarrow +\lambda$ $\implies$  growth
+
+![](figures/cockroach.jpg)
+
 $$
-A\,  \frac{\partial^2 U}{\partial x^2}+ 2B \, \frac{\partial^2
-U}{\partial x \partial y}+C  \,\frac{\partial^2 U}{\partial y^2} +
-D\, \frac{\partial U}{\partial x}+E \,\frac{\partial U}{\partial
-y} =F
+\frac{\Delta N_i}{\Delta t} = \lambda \; N_i
 $$
 
-| **Elliptic** | **Parabolic** | **Hyperbolic**  |
-|--------------|---------------|-----------------|
-| $d=B^2-AC<0$ | $d=B^2-AC=0$  | $d=B^2-AC>0$    |
-| $\nabla^2 U(x,y) = -4\pi\rho(x,y)$ | $\frac{\partial^2 U(x,t)}{\partial x^2}= a\,\frac{\partial U(x,t)}{\partial t}$  | $\frac{\partial^2 U(x,t)}{\partial x^2}=c^{-2}\frac{\partial^2 U}{\partial t^2}$ |
-| Poisson | Heat | Wave |
 
-* Elliptic PDE:  All 2nd order, same signs.
-* Parabolic PDE:  1st order and 2nd order derivatives.
-* Hyperbolic PDE:  All 2nd order, opposite signs.
+#### Refine Model: Maximum Population $N_*$
 
+##### Incorporate Carrying Capacity into Rate
 
-#### Relation to Boundary Conditions & Uniqueness
-| **Boundary Condition**  | **Elliptic** (Poisson) |  **Hyperbolic** (Wave)| **Parabolic** (Heat) |
-|---------------|--------------|-----------------|----------------|
-| Dirichlet open $S$   | Under | Under | *Unique & stable (1-D)* |
-| Dirichlet closed $S$ | *Unique & stable* | Over | Over |
-| Neumann open $S$     | Under | Under | *Unique & Stable (1-D)* |
-| Neumann closed $S$   | *Unique & stable* | Over |Over |
-| Cauchy open $S$ | Nonphysical | *Unique & stable* | Over |
-| Cauchy closed $S$|Over | Over| Over |
-
-
-* Boundary conditions: must be sufficient for unique solution.
-* Dirichlet: value on surrounding closed $S$.
-* Neumann: value normal derivative on surrounding $S$.
-* Cauchy: both solution & derivative on closed boundary.
-
-#### Solving PDEs & ODEs Is Different
-No Standard PDE Solver
-
-* Standard form for ODE:
+* Assume  breeding rate proportional to   number of bugs:
 $$
-\frac{d\mathbf{y}(t)} {dt} =  \mathbf{f}(\mathbf{y}, t)
+\frac{\Delta N_i}{\Delta t} = \lambda \; N_i
 $$
-* Single independent variable $\implies$ standard algorithm
-(e.g. `rk4`).
-* PDEs: several independent variables: $U(x,y,z,t)$.
-* $\implies$  PDE solving is complicated:
-
-*  More variables, more equations, more  ICs, BCs.
-* Each PDE and particular BCs $\implies$ particular algorithm.
-
-### Heat Equation
-
-
-#### Problem: How Does a Bar Cool?
-![](figures/figure1712cFix.png)
-
-Insulated Metallic Bar Touching Ice
-
-* Aluminum bar, $L=1$~m, $w$ along $x$.
-* Insulated along length, ends in ice ($T=0^\circ$C).
-* Initially $T=100^\circ$C.
-* How does temperature vary in space and time?
-
-#### The Parabolic Heat Equation (Theory)
-1. Nature: heat flow  hot $\rightarrow$ cold  
-  $T$ = temperature
-  $K$ = conductivity  
-  $C$ = specific heat  
-  $\rho$ = density  
-$$H = - K \,\mathbf{\nabla} T(\mathbf{x}, t)$$
-2. $Q(t)$ = contained heat
-$$Q(t) = \int dx\, C \rho(x) \, T(x, t)$$
-3. Heat Eqn: $\Delta T$ from flow
-$$\frac{\partial T(x, t)}{\partial t} = \frac{K}{C \rho} \nabla^2 T(x, t)$$
-4. Parabolic PDE in  $x$ & $t$
-$$\frac{\partial T(x,t)}{\partial t} = \frac{K}{C\rho}\frac{\partial ^2 T(x,t)}{\partial x^2}$$
-5. "Analytic" Solution  
-   Initial condition:  
-   $T(x,t=0) = 100^\circ$C  
-   Boundary conditions:  
-   $T(x=0) = T(x=L) = 0^\circ$C  
-$$T(x,t) = \sum_{n=1,3,\ldots}^\infty  \frac{400\sin\,k_n x\,e^{-\alpha k_n^2 t}}{n\pi} $$
-$$(k_n = \frac{n\pi}{L}, \alpha = \frac{K}{C\rho})$$
+ * Want growth rate   $\downarrow$  as  $N_i \rightarrow N_{*}$
+ * Assume $\lambda=\lambda' (N_*-N_i)$
+$$
+  \Rightarrow\ \ {\frac{\Delta
+N_i}{\Delta t} =
+\lambda'(N_{*}-N_i)N_i} \quad \quad \mbox{(Logistic Map)}
+$$
+* Small $N_i/N_*$ $\implies$ exponential growth
+*  $N_i \rightarrow N_*$  $\implies$ slow growth, stable, decay
 
 
-#### Solution Via Time Stepping
+#### Logistic as Map in Dimensionless Variables
 
-![](figures/figure1713c.png)
-
-\begin{align*}
-\frac{\partial T}{\partial t} \simeq & \frac{T(x,t+\Delta t)-T(x,t)}{\Delta t}\\
-\frac{\partial^2 T}{\partial x^2} \simeq & \frac{T(x +\Delta x)+T(x-\Delta x)-2 T(x)}{(\Delta x)^2}
-\end{align*}
-
-
-* Differential $\rightarrow$ difference equation.
-* Solve at $x,t$ lattice sites.
-* blue = BC
-  row 0 = IC
-* $\partial t$: forward difference  
-  $\partial^2 x$: central difference  
-  $\implies$  difference  heat equation  
-* Step $\downarrow$ one $t$ to next.
-
-
+As Population, Change Variables
+$$
 \begin{align}
-\frac{T(x,t+ \Delta t)-T(x,t)}{\Delta t} =& \frac{K}{C\rho}\frac{T(x+\Delta x,t) +T(x-\Delta x,t) -2 T(x,t)}{\Delta x^2} \\
-T_{i,j+1} =& T_{i,j}+ \eta \left[T_{i+1,j}+T_{i-1,j}-2T_{i,j}\right]
+N_{i+1}  = & N_i + \lambda' \, \Delta t (N_{*}-N_i)N_i 
+ {x_{i+1}} \ =\ & {\mu x_{i}(1- x_{i}) \quad\quad\mbox{(Logistic Map)}}
+\mu \deq\ & 1 + \lambda' \,\Delta  t N_{*}, \quad \quad x_{i} \deq
+\frac{\lambda' \,  \Delta  t}{\mu} N_i\simeq
+\frac{N_i}{N_{*}}
+x_{i} \simeq \frac{N_i}{N_{*}} \  =& \  \mbox{fraction of max}
 \end{align}
-
-#### Von Neumann Stability Analysis
-$$
-T_{m,j+1} \ = \  T_{m,j}+ \eta
-\left[T_{m+1,j}+T_{m-1,j}-2T_{m,j}\right], \\\  x = m \Delta x,  t=j \Delta t
 $$
 
-
-* How do we tell if difference solution is approximately a solution of the PDE?
-  - It's certainly bad if difference diverges.
-* Analysis of error behavior possible:
-  - Expand spatial variation of error in Fourier series.
-  - Examine time dependence of each term in series.
-  - For stability, all terms must decay exponentially with time $t$.
-
-* Requirement for stability:
-\begin{equation}
-\eta = \frac{K\,\Delta t}{C\rho\,\Delta x^2}<\frac{1}{2} 
-\end{equation}
-* $\implies$ Smaller $\Delta t$ more stable
-* To use $\downarrow$ $\Delta x$ must use $\downarrow$ $\Delta t$
-
-### Classic Problem $V$ for Arbitrary Geometry & Boundary Conditionss
-![](figures/figure171c.png)
-
-#### Solve *Inside* Charge-Free Square
-* Boundaries are conductors at fixed voltage.
-* Closed boundary (insulate openings).
-* $\implies$ Neumann conditions on the boundary.
-* $\implies$ Unique & stable solution.
-
-### Laplace Equation
+*   $0 \leq x_{i} \leq 1$
+*  Map: $x_{i+1} = f(x_i)$
 
 
-#### Classic Problem: $V$ for Arbitrary Geometry & Boundary Conditions 
-
-![](figures/figure171c.png)
-
-#### Solve **Inside Charge-Free Square**
-
-* Boundaries are conductors at fixed voltage.
-* Closed boundary (insulate openings).
-* $\implies$ Neumann conditions on the boundary.
-* $\implies$ Unique & stable solution.
+*  Quadratic,  1-D map
+* $f(x) = \mu x(1-x)$
 
 
-#### Laplace & Poisson Elliptic PDEs (Theory)
+
+### Properties
+#### Properties of Nonlinear Maps (Theory)
+
+Empirical Study: Plot  $x_i$ \emph{vs}  $i$
+
+![](figures/Populations.png)
+
+* A: $\mu = \textrm{2.8}$, equilibration into single population
+* B:  $\mu = \textrm{3.3}$, oscillation between 2 population levels
+* C:  $\mu = \textrm{3.5}$ oscillation among 4 levels
+* D:    chaos
 
 
-* Classical EM,  static charges, **Poisson Equation**:
+### Attractors
+#### Fixed Points
+$x_{i}$ Stays at $x_{*}$ or Returns
+
+![](figures/Populations.png)
+
 $$
-\nabla^2 U(x) = - 4 \pi \rho(x)
-$$
-* **Laplace equation** if $\rho(x)=0$:
-$$
-\nabla^2 U(x) = 0
-$$
-* Solve in 2-D rectangular coordinates:
- $$
-\frac{\partial^2 U(x,y)}{\partial x^2}+ \frac{\partial^2
-U(x,y)}{\partial y^2 } =
-\begin{cases}
-0, & \mbox{Laplace equation,} \\
-- 4 \pi \rho(x), & \mbox{Poisson equation}
-\end{cases}
- $$
-* $U(x,y)$: two independent variables $\implies$ PDE.
-
-#### Fourier Series Solution As Algorithm
-#### Standard Textbook Solution Not Always Good
-$$
-U(x,y)=\sum_{n=1,3,5,\ldots}^\infty \frac{400}{n\pi} \sin
-\left(\frac{n\pi x}{L}\right)\, \frac{\sinh (n\pi y/L)}{\sinh
-(n\pi)}
+x_{i+1} = \mu x_i (1-x_i)
 $$
 
 
-* Sum not separable: $\neq \ X(x)\ Y(y)$. 
-* Sum = infinite; not true analytic solution.
-* **Algorithm: $\sum^{\infty} \simeq \sum^{N}$**
-* Painfully slow convergence $\implies$ round-off error.
-* $\sinh(n)$ means overflow for large $n$.
-
-* Converges in *mean square*, Gibbs overshoot. $N\neq\infty$
-
-#### Fourier-Gibb's Overshoot at Discontinuities
-![](figures/figure172c.png)
-
-
-#### Finite-Difference Form of Poisson Equation
-$$
-\frac{\partial^2 U(x,y)}{\partial x^2}+ \frac{\partial^2
-U(x,y)}{\partial y^2 } =
-\begin{cases}
-0, & \mbox{Laplace equation,} \\
-- 4 \pi \rho(x), & \mbox{Poisson equation}
-\end{cases}
-$$
-
-![](figures/figure173c.png)
-
-* Form 2-D $x-y$ lattice.
-* Solve for $U$ at each lattice site.
-* Derivatives $\rightarrow$ **finite-differences**.
-* Or use finite-elements (non-square grid)
-  $\implies$ more efficient, harder setup
-
-#### Finite-Difference Form of Poisson Equation
-
-1. Forward difference $\partial/\partial x$:
-\begin{align*}
-U(x +\Delta x, y) = &  U(x,y) + \frac{\partial U} {\partial x} \Delta x
-+ \frac{1}{2} \frac{\partial^2 U} {\partial x^2}(\Delta x)^2 + \cdots \\
-U(x -\Delta x, y) = &  U(x,y) - \frac{\partial U}{\partial x}
-\Delta x + \frac{1} {2} \frac{\partial^2 U}{\partial x^2} (\Delta
-x)^2 - \cdots
-\end{align*}
-2. Add series, odd terms cancel:
-$$
-\frac{\partial^2 U(x,y)}{\partial x^2} \simeq 
-\frac{U(x+\Delta x, y) + U(x-\Delta x, y) -2U(x,y)} {(\Delta x)^2}
-$$
-  $\implies$ Finite-difference Poisson PDE:
-\begin{align*}
-& \frac{U(x+\Delta x,y) + U(x-\Delta x,y)-2 U(x,y)}{(\Delta x)^2} + \\
-& \frac{U(x,y+\Delta y) + U(x,y-\Delta y)-2
-U(x,y)}{(\Delta y)^2} = -4\pi\rho
-\end{align*}
-
-#### Solve Discrete Poisson Equation on Lattice
-
+*  One-cycle: $x_{i+1} = x_{i} = x_{*}$
 \begin{align}
-- 4 \pi \rho(x) =& \frac{\partial^2 U(x,y)}{\partial x^2}+\frac{\partial^2 U(x,y)}{\partial y^2 }\\
--4\pi\rho_{i,j}\Delta^2 =& U_{i+1, j}  + U_{i-1, j}  +  U_{i, j+1} + U_{i, j-1} -4 U_{i,j} \\
-\Rightarrow\quad U_{i,j} =& \frac{1}{4}\left[ U_{i+1,j}+U_{i-1,j}+U_{i,j+1}+U_{i,j-1} \right] + \pi\rho_{i,j} \Delta^2
+\mu x_{*} (1-x_{*}) \ = &\  x_{*}
+\Rightarrow\  x_{*}  \ =&\  0, \quad   x_{*} = \frac{\mu -
+1}{\mu}
 \end{align}
+  
+  
+ #### Period Doubling, Attractors
+Unstable via  Bifurcation into 2-Cycle
 
- ![](figures/figure173c.png)
+![](figures/Populations.png)
 
-* Solve (2): a **big** matrix!
-* **Correct solution = average of 4 nearest neighbors.**
-* Can we iterate to relax to the solution?
-* Need to know if we arrive or fail.
-
-#### Relaxation Method
-![](figures/figure173c.png)
-
-#### How do we iterate towards a solution?
-
-* Jacobi: update $U$ after full sweep:
-
-* Maintains symmetry of BC.
-
-* Gauss--Seidel: always use latest $U$:
-\begin{equation*}
-U^{\rm(new)}_{i,j} = \frac{1}{4}\left[U^{\rm (old)}_{i+1,j} + U^{\rm (new)}_{i-1,j} + U^{\rm (old)}_{i,j+1} +  U^{\rm (new)}_{i,j-1} \right]
-\end{equation*}
-
-* Faster convergence $\implies$ $\downarrow$ RO error.
-* Decreased memory.
-* Distorts symmetry of BCs.
-
-#### Successive Over Relaxation (SOR)
-
-#### New = Old + Residual
-\begin{align}
-U^{\rm (new)_{i,j}}  = & { U^{\rm (old)}_{i,j}  + r_{i,j}}\\
-r_{i,j } \equiv & U^{\rm (new)}_{i,j} - U^{\rm (old)}_{i,j} \\
- =& {\frac{1}{4}\left[U^{\rm (old)}_{i+1,j} + U^{\rm (new)}_{i-1,j} + U^{\rm (old)}_{i,j+1} +  U^{\rm (new)}_{i,j-1} \right] 
--U^{\rm (old)}_{i,j}} \\
-\end{align}
-
-**Successive Over Relaxation**
+* Attractors, cycle points
+* Predict:  same population generation $i$, $i+2$
 $$
- U^{\rm (new)_{i,j} = U^{\rm (old)}_{i,j} + \omega \ r_{i,j}}
+x_{i} = x_{i+2} = \mu x_{i+1}(1-x_{i+1})\enskip\Rightarrow\enskip
+x_{*} = \frac{1+\mu \pm \sqrt{\mu^{2}-2\mu -
+3}}{2\mu}
 $$
+*   $\mu>3$: real solutions
+* Continues 1 $\rightarrow$ 2 populations
 
-|       Method     |    $\omega$     |
-| ---------------- | --------------- |
-| Gauss-Seidel     | $=1$      |
-| Over-relaxation  | $\ge 1$  |
-| Under-relaxation | $<1$     |
-| Unstable         | $\geq 2$ |
+
+![](figures/bugcolor2.png)
  
-* Determine $\omega$ empirically
+ *  Can't vary intensity
+ * Vary point density
+ * Resolution $\sim$  300 DPI
+ *  $3000 \times 3000 \simeq 10^7$ pts
+ * Big, more = waste
+ * Create 1000 bins   
+ * $1 \leq \mu \leq 4$
+ * Print $x_{*}$  3-4 decimal places
+ * Remove duplicates
+ * Enlarge:  {self-similarity}
+ *  Observe  windows
+ 
+ 
 
 
-#### Non Ideal Capacitors
-#### Small Plates, Large Gaps $\implies$ Edge & Fringe Effects
+Problem: Realistic Single or Double Pendulum
 
-![](figures/figure178c.png)
+Simulate Nonlinear, Chaotic System
+ 
+   * Driven single pendulum 
+   * Free, double pendulum
+   * Large oscillations, even over-the-top
+   
+![](figures/BothPends.png)
 
-* $U=0$ boundary for uniqueness.
-* Simple: thin plates $\pm 100$ V.
-* Interest: thick plates, $\rho(x) =?$
-  Laplace $\implies$ $U(x,y)$
-  Poisson $\implies$ $\rho(x,y)$\\*
-* Could have arbitrary BCs
-  e.g. $U(x) = 100 \sin\left(\frac{2\pi x}{w}\right)$
+### ODE
+
+#### Chaotic Pendulum ODE
+##### Newton's Laws for Rotational Motion   $\sum \tau \,=\, I \ \frac{d^2\theta}{dt^2}$ 
+
+![](figures/SinglePend.png)
+
+ *  Gravitation $\tau$: $-mgl\sin\theta$
+ * Friction $\tau$:   $-\beta\dot{\theta}$
+ * External $\tau$:  $\tau_0\cos \,\omega t$
+
+ 
+\begin{align}
+I\, \frac{d^{2}\theta} {dt^{2}} = &   - {mgl}\, \sin\theta
+ - \beta \, \frac{d\theta}{dt}
+  + \tau_{0} \cos\omega t 
+ { \frac{d^{2}\theta} {dt^{2}}   =}  &
+  {-\omega_{0}^{2}  \,\sin \theta  -\alpha \,\frac{d\theta}{dt} +
+f\cos\omega t} 
+\end{align}
+
+$$
+\omega_{0}    =  \frac{mgl}{I},\quad \alpha =
+\frac{\beta}{I}, \quad f =\frac{\tau_0}{I}
+$$
+
+ 
+#### Chaotic Pendulum ODE
+##### Standard ODE Form (rk4): $\quad \dot{\vec{y}} = \vec{f}(\vec{y}, t)$}
+
+![](figures/SinglePend.png)
+
+
+  $$ \frac{d^{2}\theta}{dt^{2}}   =
+-\omega_{0}^{2}  \,\sin \theta  -\alpha \,\frac{d\theta}{dt} +
+f\cos\omega t
+$$
+
+ * 2$^{nd}$ O t-dependent nonlinear ODE
+* Nonlinearity:  $\sin\theta \simeq \theta -\theta^3/3! \cdots$
+ * $ y^{(0)} =  \theta(t), \quad y^{(1)} = \frac{d\theta(t)}{dt}$
+
+  \begin{align}
+{\frac{dy^{(0)}}{dt} \ =\ }&  {y^{(1)}}
+{\frac{dy^{(1)}}{dt}  \ =\  }& {- \omega_{0}^{2} \sin y^{(0)} - \alpha
+y^{(1)} + f\cos\omega t}
+\end{align}
+
+
+### Free Pend
+
+#### Start Simply: Free Oscillations (Test Algorithm \& Physics)
+Ignore Friction \& External Torques ($f= \alpha = 0$)
+
+![](figures/FreePend.png)
+
+\begin{align}
+ {\ddot{\theta}  =} & {-\omega_{0}^{2} \sin \theta }  \label{6}
+  \ddot{\theta} \  \simeq\  & -\omega_0^2 \theta \quad\quad \mbox{(linear,  $\theta\simeq 0$)}\nonumber
+ \Rightarrow \enskip\theta(t) \ =\  & \theta_{0} \sin(\omega_{0} t
++ \phi)
+\end{align}
+
+''Analytic solution''; sort of:
+
+$$
+ T  \propto
+\int_{0}^{\theta_m}\frac{d\theta}{ \left[\sin^{2}({\theta_m}/{2})
+- \sin^{2}({\theta}/{2})\right]^{1/2}}
+$$
+
+#### Visualization: Phase Space Orbits
+##### Abstract Space: $v(t)$ vs $x(t)\ $ ($x$ vs $t$, $v$ vs $t$= Complicated)}
+
+![](figures/Fig127Mod.png)
+
+* Geometry easy to "see"
+* SHM: Ellipse, $E\rightarrow$ size
+* Anharmonic:  + corners
+ 
+ * Ossc $\implies$ CW Closed
+ * Non Ossc, repulse = open
+
+\begin{align}
+x(t)=&  A \sin(\omega t),\quad v(t)   = \omega A
+\cos(\omega t)\quad (SHM)
+E  = & {\rm KE} + {\rm PE} =   m {v^{2}}/2 +
+ \omega^{2}m^{2}{x^{2}}/2=  \mbox{ellipse}
+\end{align}
+
+
+ #### Undriven, Frictionless Pendulum in Phase Space
+
+Separatrix  Separates Open \& Closed Orbits
+![](figures/Fig128leftMod.png)
+
+  * Closed: oscillation
+  * Open: rotation
+  * Both: periodic
+ *  Orbits do not cross
+
+ *  Open orbits touch
+ * Hyperbolic points
+ * Unstable equilibrium
+
+ #### Include Friction, Driving Torque (small t steps)
+
+##### Geometry Tends to Remain
+
+![](figures/Limit.png)
+
+ *  Friction $\implies$ $\downarrow$ E
+ *  Inward Spiral
+ * $\tau_{\rm ext}$ can put $E$ back
+
+ * Limit cycle = Balance 
+ * $<\tau_{\rm ext}> \ = \ <\mbox{friction}> $
+
+
+#### Chaos As Viewed in Phase Space (Full Solution)
+
+##### Look for in Your Simulations
+
+![](figures/PSplotPend.png)
+ 
+  * Complex $\leq$ Chaos $\leq$ Rand
+  * Fixed Params, all $x_0$, $t$s:  flows 
+ 
+ * Chaos complex $\neq$ mess
+ * Figs distort, remains
+ * Closed = periodic 
+ * Simplicity in chaos [PS, $\neq \theta(t)$]
+  * $\rightarrow$ attractors (return)
+  * Random = cloud fill $E$
+  * {Bands} $\implies$ continuity, sequential
+  * $\implies$ hypersensitive $\theta(t)$
+  * Tools measure chaos
+ 
+
+
+
+
+
+### Double Pendulum
+#### Double Pendulum: Alternative Problem
+
+##### Chaos without External Torque or Friction
+![](figures/DoublePendPhoto.png})
+
+* No small-$\theta$
+* Coupling = extra degree freedom
+* Small $\theta$: in-$\phi$, out-$\phi$
+
+
+\begin{align}
+L =& {\rm KE}-{\rm PE} =  (m_1+m_2) l_1^2
+\dot{\theta_1}^2/2 +  m_2l_2^2\dot{\theta_2}^2/2\\
+& +\, m_2l_1l_2
+\dot{\theta_1}\dot{\theta_2}\cos(\theta_1-\theta_2) +(m_1+m_2)g
+l_1\cos\theta_1 + m_2g l_2\cos\theta_2 \nonumber
+\Rightarrow\quad & (m_1+m_2)l_1\ddot{\theta_1} +
+m_2l_2\ddot{\theta_2}\cos(\theta_1-\theta_2) + m_2 l_2 \dot{\theta_2}^2
+\sin(\theta_1-\theta_2)
+&\quad + g(m_1+m_2)\sin\theta_1 = 0  \nonumber\\
+&m_2l_2\ddot{\theta_2}+m_2l_1\ddot{\theta_1}\cos(\theta_1-\theta_2)-
+m_2l_1\dot{\theta_1}^2\sin(\theta_1-\theta_2)  +  mg\sin\theta_2 =
+0
+\end{align}
+
+
+#### Double Pendulum: Bifurcations
+
+![](figures/DoublePend.png)
+![](figures/DoublePendBifur.png)
+
+
