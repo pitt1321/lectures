@@ -88,7 +88,9 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 10/19
     + CP 8.5 "Other methods for differential equations"
 
-9. Week of 10/24 "Partial differential equations"
+9. ODEs continued.  Review previous reading.
+
+10. Week of 10/24 "Partial differential equations"
   - 10/17
     + CP 9 Introduction
     + CP 9.1 "Boundary value problems and the relaxation method"
@@ -97,7 +99,7 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 10/21
     + CP 9.3 "Initial value problems"
 
-10. Week of 10/31 "Fourier Transforms"
+11. Week of 10/31 "Fourier Transforms"
   - 10/24
     + CP 7 Introduction
     + CP 7.1, 7.2 "Fourier series", "The discrete Fourier transform"
@@ -105,7 +107,7 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 10/26
     + CP 7.3, 7.4 "Discrete cosine and sine transforms", "Fast Fourier transforms"
 
-11. Week of 11/07 "Chaos and Non-Linear Systems"
+12. Week of 11/07 "Chaos and Non-Linear Systems"
   - 11/07 Logistic Map
       + https://en.wikipedia.org/wiki/Logistic_map
   - 11/09
@@ -113,7 +115,6 @@ As a general rule you will find yourself doing much more reading in the first mo
       + https://en.wikipedia.org/wiki/Double_pendulum
       + lectures/week_11/DoublePendulum.pdf
       
-12. Week of 11/14
 13. Week of 11/21
 14. Week of 11/28
 15. Week of 12/05
