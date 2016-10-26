@@ -90,27 +90,27 @@ As a general rule you will find yourself doing much more reading in the first mo
 
 9. ODEs continued.  Review previous reading.
 
-10. Week of 10/24 "Partial differential equations"
-  - 10/17
+10. Week of 10/31 "Partial differential equations"
+  - 10/31
     + CP 9 Introduction
     + CP 9.1 "Boundary value problems and the relaxation method"
-  - 10/19
+  - 11/02
     + CP 9.2 "Faster methods for boundary value problems"
-  - 10/21
+  - 11/04
     + CP 9.3 "Initial value problems"
 
-11. Week of 10/31 "Fourier Transforms"
-  - 10/24
+11. Week of 11/07 "Fourier Transforms"
+  - 11/07
     + CP 7 Introduction
     + CP 7.1, 7.2 "Fourier series", "The discrete Fourier transform"
     + lectures/week_09/M_Math_Phys_and_AHDN.pdf
-  - 10/26
+  - 11/09
     + CP 7.3, 7.4 "Discrete cosine and sine transforms", "Fast Fourier transforms"
 
-12. Week of 11/07 "Chaos and Non-Linear Systems"
-  - 11/07 Logistic Map
+12. Week of 11/14 "Chaos and Non-Linear Systems"
+  - 11/14 Logistic Map
       + https://en.wikipedia.org/wiki/Logistic_map
-  - 11/09
+  - 11/16
       + Double Full Pendulum
       + https://en.wikipedia.org/wiki/Double_pendulum
       + lectures/week_11/DoublePendulum.pdf
