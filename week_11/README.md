@@ -1,5 +1,5 @@
 # Computational methods in Physics
-## Week 10
+## Week 11
 #### Prof. Michael Wood-Vasey
 ##### [based on materials from Prof. Brian D'Urso]
 ##### University of Pittsburgh, Department of Physics and Astronomy
