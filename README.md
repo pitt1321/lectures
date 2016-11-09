@@ -103,7 +103,7 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 11/07
     + CP 7 Introduction
     + CP 7.1, 7.2 "Fourier series", "The discrete Fourier transform"
-    + lectures/week_09/M_Math_Phys_and_AHDN.pdf
+    + lectures/week_11/M_Math_Phys_and_AHDN.pdf
   - 11/09
     + CP 7.3, 7.4 "Discrete cosine and sine transforms", "Fast Fourier transforms"
 
