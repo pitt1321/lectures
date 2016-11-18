@@ -107,13 +107,13 @@ As a general rule you will find yourself doing much more reading in the first mo
   - 11/09
     + CP 7.3, 7.4 "Discrete cosine and sine transforms", "Fast Fourier transforms"
 
-12. Week of 11/14 "Chaos and Non-Linear Systems"
-  - 11/14 Logistic Map
-      + https://en.wikipedia.org/wiki/Logistic_map
+12. Week of 11/14 "Projects and Workflows"
+  - 11/14
+      + http://rogerdudler.github.io/git-guide/
+      + https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
   - 11/16
-      + Double Full Pendulum
-      + https://en.wikipedia.org/wiki/Double_pendulum
-      + lectures/week_11/DoublePendulum.pdf
+      + https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows
+      + https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
       
 13. Week of 11/21
 14. Week of 11/28
